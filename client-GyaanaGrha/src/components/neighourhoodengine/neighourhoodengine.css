@@ -1,0 +1,123 @@
+.neighourhood-engine {
+  flex: 1;
+  min-height: 100vh;
+  padding-bottom: 15vh;
+  padding: 20px 10px;
+  column-gap: 20px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+  padding: 20px 10px;
+  border-radius: 20px;
+}
+
+.nav-title {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  padding: 10px;
+  padding-right: 40px;
+  border-radius: 60px;
+}
+.input-section {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  margin: 30px 20px;
+  padding: 20px;
+  padding-right: 20px;
+}
+
+.input-field {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  border: 1px solid #dcdcdc;
+  box-sizing: border-box;
+}
+
+.input-section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-field:focus {
+  border-color: #4b90ff;
+  box-shadow: 0 0 0 2px rgba(75, 144, 255, 0.2);
+  outline: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: row; /* Horizontal layout */
+  gap: 6px; /* Small horizontal space between cards */
+  flex-wrap: wrap;
+}
+
+.data-card {
+  background-color: #f0f4f9;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.data-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.data-card p {
+  margin: 6px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.data-card strong {
+  color: #333;
+}
+
+.data-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #4b90ff;
+}
+
+.search-button {
+  align-self: flex-start;
+  padding: 12px 28px;
+  background-color: #4b90ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.search-button:hover {
+  background-color: #397be3;
+  transform: translateY(-2px);
+}
+
+.search-button:active {
+  background-color: #2e66c7;
+  transform: translateY(0);
+}
+
+.cart-container:hover {
+  background-color: #d7d6ff; /* Light gray on hover */
+}

@@ -1,0 +1,8 @@
+.my-area {
+    flex: 1;
+    min-height: 100vh;
+    padding-bottom: 15vh;
+    padding: 20px 10px;
+    column-gap: 20px;
+}
+

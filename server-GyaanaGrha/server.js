@@ -7,11 +7,13 @@ const app = express();
 // Importing the file for the Test...
 const testRoutes = require("./routes/test.js");
 const filteredRoutes = require("./routes/filteredRoutes.js");
+const promptRoutes = require("./routes/promptRoutes.js")
+const cartRoutes = require("./routes/cartData.js")
 
 // CORS Middleware - CORS (Cross-Origin Resource Sharing)
 app.use(
   cors({
-    origin: [process.env.GEMINI_CLONE], // NOTE : I have to change the Path...
+    origin: [process.env.APPLICATION], // NOTE : I have to change the Path...
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
     credentials: true,
@@ -42,6 +44,8 @@ mongoose
 // Registered routes for the imports....
 app.use('/test', testRoutes);
 app.use('/', filteredRoutes);
+app.use('/promptState', promptRoutes);
+app.use('/cart', cartRoutes);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
