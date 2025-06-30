@@ -3,6 +3,7 @@ import { getAllCarts, createCart, deleteCart } from "./cart.js";
 const fetchCarts = async (setPincodeData) => {
   try {
     const data = await getAllCarts();
+    // console.log(data);
     return data;
   } catch (error) {
     console.error("Error while fetching pincodes:", error);
@@ -11,13 +12,13 @@ const fetchCarts = async (setPincodeData) => {
 };
 
 const pushCarts = async (input) => {
-  try {
-    const data = await createCart(input);
-    return data;
-  } catch (error) {
-    console.error("Error while pushing pincode:", error);
-  }
-};
+    try {
+        const data = await createCart(input);
+        return data;
+    } catch (error) {
+        console.error("Error while pushing pincode:", error);
+    }
+    };
 
 const deleteCarts = async (id) => {
   try {

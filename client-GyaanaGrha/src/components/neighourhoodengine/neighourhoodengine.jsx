@@ -1,12 +1,9 @@
 // neighourhoodengine.jsx
 import React, { useContext, useState } from "react";
-import Sidebar from "../sidebar/sidebar.jsx";
 import "./neighourhoodengine.css";
 import {
-  getListItemSecondaryActionClassesUtilityClass,
   TextField,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -27,6 +24,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { pushPrompt } from "../../api/prompt/fetchPrompt.js";
 import { useNavigate } from "react-router-dom";
+import { pushCarts } from "../../api/cart/useCart.js";
 
 export default function NeighourhoodEngine() {
   const [results, setResults] = useState([]);
@@ -436,12 +434,12 @@ export default function NeighourhoodEngine() {
                     <div>
                       <img
                         src={
-                          "https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
+                          "https://static.thenounproject.com/png/47398-200.png"
                         }
                         style={{
-                          width: "25px",
-                          height: "25px",
-                          marginLeft: "200px",
+                          width: "40px",
+                          height: "40px",
+                          marginLeft: "190px",
                         }}
                       />
                     </div>
@@ -707,7 +705,7 @@ export default function NeighourhoodEngine() {
                     >
                       <div>
                         <IconButton aria-label="add to favorites">
-                          <FavoriteIcon />
+                          <FavoriteIcon onClick={() => {alert("Add House to areas first (Put Favourite from My Areas -> Top Right)")}} />
                         </IconButton>
                         <IconButton aria-label="share">
                           <ShareIcon />
@@ -718,6 +716,23 @@ export default function NeighourhoodEngine() {
                           src={
                             "https://static.thenounproject.com/png/47398-200.png"
                           }
+                          onClick={() => {
+                            const payload = {
+                              circlename: item.circlename,
+                              regionname: item.regionname,
+                              divisionname: item.divisionname,
+                              officename: item.officename,
+                              pincode: item.pincode,
+                              officetype: item.officetype,
+                              delivery: item.delivery,
+                              district: item.district,
+                              statename: item.statename,
+                              latitude: item.latitude,
+                              longitude: item.longitude,
+                            };
+                            alert("House has been added to areas"); // for the view of getting whether the cart image is working or not...
+                            pushCarts(payload);
+                          }}
                           style={{
                             width: "40px",
                             height: "40px",

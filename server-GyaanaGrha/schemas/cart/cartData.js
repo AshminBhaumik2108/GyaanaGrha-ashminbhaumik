@@ -19,4 +19,4 @@ const pincodeDataSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("PincodeData", pincodeDataSchema);
+module.exports = mongoose.model("CartAreas", pincodeDataSchema);

@@ -13,7 +13,7 @@ const sidebar = ({ data }) => {
   // Context :
   const { onSent, prevPrompts, setRecentPrompt, newChat, setPrevPrompts } =
     useContext(Context);
-
+  // Fo the Navigation of the application we re using it....
   const navigate = useNavigate();
   // State variable for the sidebar component...
   // expand and collapse the sidebar...
@@ -21,14 +21,7 @@ const sidebar = ({ data }) => {
   // Context API : to access the functions and variables from the context...
   const queryClient = useQueryClient();
 
-  //   Function to fetch previous prompts
-  //   const fetchPrompts = async () => {
-  //     const data = await getAllPrompts();
-  //     // console.log(data.data);
-  //     setPrevPrompts(data?.data);
-  //   };
-
-  // Fetch prompts on component mount
+  // Fetch prompts on component mount : i.e. when the component mounts it gets updated by the Changed data...
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchPrompts();
@@ -53,7 +46,7 @@ const sidebar = ({ data }) => {
           />
           {extended ? (
             <h2  style={{ cursor: "pointer" }} onClick={() => navigate("/neighborhood-fit-engine")}>
-              <span>GyaanaGrha</span>
+              <span>GyaanaGrha</span> {/* Appplication Name */}
             </h2>
           ) : null}
         </div>
@@ -87,11 +80,11 @@ const sidebar = ({ data }) => {
             <div className="recent-entry">
               <img
                 src={
-                  "https://play-lh.googleusercontent.com/LH-Ksy6XrmQp7gGDGp_J0d9kMS6QZpN8aUFiegtygMu-zDlzmv8iumVILNYsFYKLJ8c"
+                  "https://similarpng.com/_next/image?url=https%3A%2F%2Fimage.similarpng.com%2Ffile%2Fsimilarpng%2Fvery-thumbnail%2F2020%2F08%2FEmoji-social-media-Reaction-heart-icon-vector-PNG.png&w=3840&q=75"
                 }
                 alt=""
               />
-              <p>Resume & Portfolio Builder</p>
+              <p>My Favourites</p>
             </div>
             <div className="recent-entry">
               <img
@@ -125,27 +118,25 @@ const sidebar = ({ data }) => {
         {/* Top Div : Ended */}
 
         {/* Recent Entries */}
+        {/* Where we will see the Data (Statename) for tge values... */}
         {extended ? (
           <>
             <div style={{ paddingTop: "40px", paddingBottom: "10px" }}>
               Recent States search
             </div>
             <div className="recent-state">
+              {/* Dynamic Entries fetched by the API from MongoDB : */}
               {prevPrompts?.map((prompt, index) => (
                 <div
                   key={index}
                   className="recent-entry"
-                  onClick={() => {
-                    // setRecentPrompt(prompt);
-                    //   onSent(prompt.input);
-                  }}
                 >
                   {prompt.input ? (
                     <>
                       <div className="entry-content">
                         <img
                           src={
-                            "https://e7.pngegg.com/pngimages/394/867/png-clipart-computer-icons-message-email-symbol-black-message-box-miscellaneous-angle.png"
+                            "https://cdn-icons-png.freepik.com/512/8395/8395475.png"
                           }
                           alt=""
                         />
@@ -178,7 +169,7 @@ const sidebar = ({ data }) => {
           </>
         ) : null}
       </div>
-
+        {/* Bottom Static Entries :  */}
       <div className="bottom">
         {/* functions : to check for the Value to chenge according to the functions */}
         <div className="bottom-item recent-entry-bottom">

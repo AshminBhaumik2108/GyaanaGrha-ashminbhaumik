@@ -10,6 +10,9 @@ import Myarea from "./components/myarea/myarea.jsx";
 function App() {
   const [count, setCount] = useState(0);
 
+  // I have use sidebar again and again for padding purpose... 
+  // Else : It can be used only once at the top...
+
   return (
     <Router>
       <div className="">

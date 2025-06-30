@@ -13,7 +13,7 @@ const fetchPincodeData = async () => {
         format: "json",
         limit: 100000, // Data Source to Scale... 
       },
-      timeout: 10000,
+      timeout: 10000, // 10 seconds to wait for the server to response in the Database..
     });
     const records = response.data.records;
     console.log(" ✅ Raw Data fetched successfully ashminbhaumik....");
