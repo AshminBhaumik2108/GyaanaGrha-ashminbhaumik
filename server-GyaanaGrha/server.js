@@ -14,7 +14,7 @@ const favouriteRoutes = require("./routes/favouriteDataRoute.js")
 // CORS Middleware - CORS (Cross-Origin Resource Sharing)
 app.use(
   cors({
-    origin: [process.env.APPLICATION], // NOTE : I have to change the Path...
+    origin: [process.env.APPLICATION, "http://localhost:5173"], // NOTE : I have to change the Path...
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
     credentials: true,
