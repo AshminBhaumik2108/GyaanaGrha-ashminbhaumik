@@ -1,9 +1,7 @@
 // neighourhoodengine.jsx
 import React, { useContext, useState } from "react";
 import "./neighourhoodengine.css";
-import {
-  TextField,
-} from "@mui/material";
+import { TextField } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -214,7 +212,7 @@ export default function NeighourhoodEngine() {
                       <MoreVertIcon />
                     </IconButton>
                   }
-                  title={"Delhi Circle"}
+                  title={"Mumbai Circle"}
                   subheader="September 14, 2016"
                 />
                 <CardMedia
@@ -239,15 +237,13 @@ export default function NeighourhoodEngine() {
                     <br />
                     <strong>State Name:</strong>
                     <br />
-                    <strong>Latitude:</strong>
-                    <br />
-                    <strong>Longitude:</strong>
-                    <br />
                     <strong>Student Area:</strong> NEET / JEE
                     <br />
                     <strong>Housing Complex:</strong> Dream Exotica
                     <br />
                     <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
+                    <br />
+                    <strong>WSM Score (Higher is Better) :</strong> NA
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -261,13 +257,13 @@ export default function NeighourhoodEngine() {
                   >
                     <div>
                       <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
+                        {/* <FavoriteIcon /> */}
                       </IconButton>
                       <IconButton aria-label="share">
-                        <ShareIcon />
+                        {/* <ShareIcon /> */}
                       </IconButton>
                     </div>
-                    <div>
+                    <div style={{ display: "flex", paddingLeft: "70px" }}>
                       <img
                         src={
                           "https://static.thenounproject.com/png/47398-200.png"
@@ -321,15 +317,13 @@ export default function NeighourhoodEngine() {
                     <br />
                     <strong>State Name:</strong>
                     <br />
-                    <strong>Latitude:</strong>
-                    <br />
-                    <strong>Longitude:</strong>
-                    <br />
                     <strong>Student Area:</strong> NEET / JEE
                     <br />
                     <strong>Housing Complex:</strong> Dream Exotica
                     <br />
                     <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
+                    <br />
+                    <strong>WSM Score (Higher is Better) :</strong> NA
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -343,13 +337,13 @@ export default function NeighourhoodEngine() {
                   >
                     <div>
                       <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
+                        {/* <FavoriteIcon /> */}
                       </IconButton>
                       <IconButton aria-label="share">
-                        <ShareIcon />
+                        {/* <ShareIcon /> */}
                       </IconButton>
                     </div>
-                    <div>
+                    <div style={{ display: "flex", paddingLeft: "70px" }}>
                       <img
                         src={
                           "https://static.thenounproject.com/png/47398-200.png"
@@ -403,15 +397,13 @@ export default function NeighourhoodEngine() {
                     <br />
                     <strong>State Name:</strong>
                     <br />
-                    <strong>Latitude:</strong>
-                    <br />
-                    <strong>Longitude:</strong>
-                    <br />
                     <strong>Student Area:</strong> NEET / JEE
                     <br />
                     <strong>Housing Complex:</strong> Dream Exotica
                     <br />
                     <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
+                    <br />
+                    <strong>WSM Score (Higher is Better) :</strong> NA
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -425,13 +417,13 @@ export default function NeighourhoodEngine() {
                   >
                     <div>
                       <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
+                        {/* <FavoriteIcon /> */}
                       </IconButton>
                       <IconButton aria-label="share">
-                        <ShareIcon />
+                        {/* <ShareIcon /> */}
                       </IconButton>
                     </div>
-                    <div>
+                    <div style={{ display: "flex", paddingLeft: "70px" }}>
                       <img
                         src={
                           "https://static.thenounproject.com/png/47398-200.png"
@@ -485,15 +477,13 @@ export default function NeighourhoodEngine() {
                     <br />
                     <strong>State Name:</strong>
                     <br />
-                    <strong>Latitude:</strong>
-                    <br />
-                    <strong>Longitude:</strong>
-                    <br />
                     <strong>Student Area:</strong> NEET / JEE
                     <br />
                     <strong>Housing Complex:</strong> Dream Exotica
                     <br />
                     <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
+                    <br />
+                    <strong>WSM Score (Higher is Better) :</strong> NA
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -507,13 +497,13 @@ export default function NeighourhoodEngine() {
                   >
                     <div>
                       <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
+                        {/* <FavoriteIcon /> */}
                       </IconButton>
                       <IconButton aria-label="share">
-                        <ShareIcon />
+                        {/* <ShareIcon /> */}
                       </IconButton>
                     </div>
-                    <div>
+                    <div style={{ display: "flex", paddingLeft: "70px" }}>
                       <img
                         src={
                           "https://static.thenounproject.com/png/47398-200.png"
@@ -567,15 +557,13 @@ export default function NeighourhoodEngine() {
                     <br />
                     <strong>State Name:</strong>
                     <br />
-                    <strong>Latitude:</strong>
-                    <br />
-                    <strong>Longitude:</strong>
-                    <br />
                     <strong>Student Area:</strong> NEET / JEE
                     <br />
                     <strong>Housing Complex:</strong> Dream Exotica
                     <br />
                     <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
+                    <br />
+                    <strong>WSM Score (Higher is Better) :</strong> NA
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -589,13 +577,13 @@ export default function NeighourhoodEngine() {
                   >
                     <div>
                       <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
+                        {/* <FavoriteIcon /> */}
                       </IconButton>
                       <IconButton aria-label="share">
-                        <ShareIcon />
+                        {/* <ShareIcon /> */}
                       </IconButton>
                     </div>
-                    <div>
+                    <div style={{ display: "flex", paddingLeft: "70px" }}>
                       <img
                         src={
                           "https://static.thenounproject.com/png/47398-200.png"
@@ -683,15 +671,13 @@ export default function NeighourhoodEngine() {
                       <br />
                       <strong>State Name:</strong> {item.statename}
                       <br />
-                      <strong>Latitude:</strong> {item.latitude}
-                      <br />
-                      <strong>Longitude:</strong> {item.longitude}
-                      <br />
                       <strong>Student Area:</strong> NEET / JEE
                       <br />
                       <strong>Housing Complex:</strong> Dream Exotica
                       <br />
                       <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
+                      <br />
+                    <strong>WSM Score (Higher is Better) :</strong> 89%
                     </Typography>
                   </CardContent>
                   <CardActions disableSpacing>
@@ -705,13 +691,19 @@ export default function NeighourhoodEngine() {
                     >
                       <div>
                         <IconButton aria-label="add to favorites">
-                          <FavoriteIcon onClick={() => {alert("Add House to areas first (Put Favourite from My Areas -> Top Right)")}} />
+                          {/* <FavoriteIcon
+                            onClick={() => {
+                              alert(
+                                "Add House to areas first (Put Favourite from My Areas -> Top Right)"
+                              );
+                            }}
+                          /> */}
                         </IconButton>
                         <IconButton aria-label="share">
-                          <ShareIcon />
+                          {/* <ShareIcon /> */}
                         </IconButton>
                       </div>
-                      <div>
+                      <div style={{ display: "flex", paddingLeft: "70px" }}>
                         <img
                           src={
                             "https://static.thenounproject.com/png/47398-200.png"

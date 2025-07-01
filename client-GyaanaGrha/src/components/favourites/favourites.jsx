@@ -18,15 +18,14 @@ import { Button } from "@mui/material";
 import { fetchNeighborhoodData } from "../../api/neighourEngine/neighourhoodEngine.js";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import { fetchCarts, deleteCarts } from "../../api/cart/useCart.js";
-import { pushFavourite } from "../../api/favourites/useFavourites.js";
+import { fetchFavourites, deleteFavourites } from "../../api/favourites/useFavourites.js";
 
-export default function myarea() {
+export default function Myfavourites() {
   const [prevCarts, setPrevCarts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchCarts();
+      const data = await fetchFavourites();
       setPrevCarts(data?.data);
     };
 
@@ -43,7 +42,7 @@ export default function myarea() {
           justifyContent: "space-between",
         }}
       >
-        <h2>My Area ( Space to save details for Rent ) : </h2>
+        <h2>My Favourites ( Space to save which you like - can be saved from My Areas ) : </h2>
         {/* <h2>My Area ( Space to save details for Rent ) : </h2> */}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -87,13 +86,15 @@ export default function myarea() {
                     <br />
                     <strong>State Name:</strong> {chart.statename}
                     <br />
+                    <strong>Latitude:</strong> {chart.latitude}
+                    <br />
+                    <strong>Longitude:</strong> {chart.longitude}
+                    <br />
                     <strong>Student Area:</strong> NEET / JEE
                     <br />
                     <strong>Housing Complex:</strong> Dream Exotica
                     <br />
                     <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
-                    <br />
-                    <strong>WSM Score (Higher is Better) :</strong> 89%
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -107,25 +108,7 @@ export default function myarea() {
                   >
                     <div>
                       <IconButton aria-label="add to favorites">
-                        <FavoriteIcon
-                          onClick={() => {
-                            const payload = {
-                              circlename: chart.circlename,
-                              regionname: chart.regionname,
-                              divisionname: chart.divisionname,
-                              officename: chart.officename,
-                              pincode: chart.pincode,
-                              officetype: chart.officetype,
-                              delivery: chart.delivery,
-                              district: chart.district,
-                              statename: chart.statename,
-                              latitude: chart.latitude,
-                              longitude: chart.longitude,
-                            };
-                            alert("House has been added to favourites"); // for the view of getting whether the cart image is working or not...
-                            pushFavourite(payload);
-                          }}
-                        />
+                        <FavoriteIcon />
                       </IconButton>
                       <IconButton aria-label="share">
                         <ShareIcon />
@@ -136,9 +119,7 @@ export default function myarea() {
                         src={
                           "https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
                         }
-                        onClick={() => {
-                          deleteCarts(chart._id);
-                        }}
+                        onClick={() =>{deleteFavourites(chart._id)}}
                         style={{
                           width: "25px",
                           height: "25px",
@@ -201,8 +182,6 @@ export default function myarea() {
                   <strong>Housing Complex:</strong> Dream Exotica
                   <br />
                   <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
-                  <br />
-                    <strong>WSM Score (Higher is Better) :</strong> NA
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>

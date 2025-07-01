@@ -25,7 +25,7 @@ const sidebar = ({ data }) => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchPrompts();
-    //   console.log(data);
+      //   console.log(data);
       setPrevPrompts(data?.data);
     };
 
@@ -45,7 +45,10 @@ const sidebar = ({ data }) => {
             className="menu"
           />
           {extended ? (
-            <h2  style={{ cursor: "pointer" }} onClick={() => navigate("/neighborhood-fit-engine")}>
+            <h2
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/")}
+            >
               <span>GyaanaGrha</span> {/* Appplication Name */}
             </h2>
           ) : null}
@@ -77,7 +80,10 @@ const sidebar = ({ data }) => {
               />
               <p>Neighborhood Fit Area</p>
             </div>
-            <div className="recent-entry">
+            <div
+              className="recent-entry"
+              onClick={() => navigate("/my-favourites")}
+            >
               <img
                 src={
                   "https://similarpng.com/_next/image?url=https%3A%2F%2Fimage.similarpng.com%2Ffile%2Fsimilarpng%2Fvery-thumbnail%2F2020%2F08%2FEmoji-social-media-Reaction-heart-icon-vector-PNG.png&w=3840&q=75"
@@ -85,15 +91,6 @@ const sidebar = ({ data }) => {
                 alt=""
               />
               <p>My Favourites</p>
-            </div>
-            <div className="recent-entry">
-              <img
-                src={
-                  "https://miro.medium.com/v2/resize:fit:1200/1*f2Ma_wt34Q-Ei2lZ2mdx0g.png"
-                }
-                alt=""
-              />
-              <p>Live Market Dashboard</p>
             </div>
             <div className="recent-entry">
               <img
@@ -127,10 +124,7 @@ const sidebar = ({ data }) => {
             <div className="recent-state">
               {/* Dynamic Entries fetched by the API from MongoDB : */}
               {prevPrompts?.map((prompt, index) => (
-                <div
-                  key={index}
-                  className="recent-entry"
-                >
+                <div key={index} className="recent-entry">
                   {prompt.input ? (
                     <>
                       <div className="entry-content">
@@ -151,7 +145,7 @@ const sidebar = ({ data }) => {
                         onClick={async (event) => {
                           // Important Chack: For those Cliks that have a Parrent onClick...
                           event.stopPropagation();
-                        //   console.log("Button Clicked...");
+                          //   console.log("Button Clicked...");
                           try {
                             await deleteData(prompt._id); // Delet the prompt..
                             // window.location.reload();
@@ -169,7 +163,7 @@ const sidebar = ({ data }) => {
           </>
         ) : null}
       </div>
-        {/* Bottom Static Entries :  */}
+      {/* Bottom Static Entries :  */}
       <div className="bottom">
         {/* functions : to check for the Value to chenge according to the functions */}
         <div className="bottom-item recent-entry-bottom">

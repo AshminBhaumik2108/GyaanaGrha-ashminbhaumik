@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Neighourhoodengine from "./components/neighourhoodengine/neighourhoodengine.jsx";
 import Dashboard from "./components/dashboard/dashboard.jsx";
 import Myarea from "./components/myarea/myarea.jsx";
+import Myfavourites from "./components/favourites/favourites.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,6 +34,15 @@ function App() {
               <div style={{ display: "flex" }}>
                 <Sidebar />
                 <Myarea />
+              </div>
+            }
+          />
+          <Route
+            path="/my-favourites"
+            element={
+              <div style={{ display: "flex" }}>
+                <Sidebar />
+                <Myfavourites/>
               </div>
             }
           />

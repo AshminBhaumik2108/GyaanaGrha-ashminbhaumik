@@ -9,6 +9,7 @@ const testRoutes = require("./routes/test.js");
 const filteredRoutes = require("./routes/filteredRoutes.js");
 const promptRoutes = require("./routes/promptRoutes.js")
 const cartRoutes = require("./routes/cartData.js")
+const favouriteRoutes = require("./routes/favouriteDataRoute.js")
 
 // CORS Middleware - CORS (Cross-Origin Resource Sharing)
 app.use(
@@ -46,6 +47,7 @@ app.use('/test', testRoutes);
 app.use('/', filteredRoutes);
 app.use('/promptState', promptRoutes);
 app.use('/cart', cartRoutes);
+app.use('/favourite', favouriteRoutes);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
