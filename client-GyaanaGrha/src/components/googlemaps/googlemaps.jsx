@@ -21,8 +21,8 @@ const GoogleMapWithMarkers = () => {
       if (!mapInstanceRef.current) {
         const map = new window.google.maps.Map(mapRef.current, {
           center: { lat: latitude, lng: longitude },
-          zoom: 18,
-          mapId: import.meta.env.VITE_MAP_ID,
+          zoom: 17 ,
+          mapId: import.meta.env.VITE_MAP_ID, // Importing the map ID for the Google Maps API (It is an Unique ID and Need the Value...)
         });
         mapInstanceRef.current = map;
 
@@ -67,6 +67,7 @@ const GoogleMapWithMarkers = () => {
   }, [latitude, longitude, stateName]); // I just gave the Dependencies here just for the sake of clarity... if we do not give than also no problem....
 
   useEffect(() => {
+    // Conitions to Chack for the Values Present or Not......
     if (
       mapInstanceRef.current &&
       markerRef.current &&
@@ -82,7 +83,7 @@ const GoogleMapWithMarkers = () => {
         if (labelElement) labelElement.innerText = stateName || "Updated Location";
       }
     }
-  }, [latitude, longitude, stateName]);
+  }, [latitude, longitude, stateName]); // Here the variables names are Compulsary (Since the Value have to refresh after changing the Lat and Long)
 
   return (
     <div
@@ -95,10 +96,13 @@ const GoogleMapWithMarkers = () => {
         boxSizing: "border-box",
       }}
     >
-      <h1 style={{ marginBottom: "20px", paddingRight: "300px" }}>
+      <h1 style={{ marginBottom: "5px", paddingRight: "300px" }}>
         Google Maps: (Google Maps to visually overlay lifestyle data like
         Central Libraries, Coaching Centers, etc.)
       </h1>
+      <h2 style={{ marginBottom: "10px", paddingRight: "300px" }}>
+        Check the Coaching Centers, Libraries, Hospitals, etc near by areas : 
+      </h2>
 
       <div
         ref={mapRef}
@@ -107,7 +111,7 @@ const GoogleMapWithMarkers = () => {
           width: "100%",
           borderRadius: "8px",
           border: "1px solid #ccc",
-          marginBottom: "40px",
+          marginBottom: "20px",
         }}
       />
       <div

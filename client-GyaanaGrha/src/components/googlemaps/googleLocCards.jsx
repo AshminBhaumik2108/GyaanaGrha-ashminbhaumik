@@ -73,14 +73,10 @@ export default function googleLocCards() {
                 <CardHeader
                   avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                      {chart.statename?.[0] || "A"}
+                      {"AB"}
                     </Avatar>
                   }
-                  action={
-                    <IconButton aria-label="settings">
-                      <MoreVertIcon />
-                    </IconButton>
-                  }
+
                   title={`${chart.officename || "Unknown Office"}`}
                   subheader={chart.pincode}
                 />

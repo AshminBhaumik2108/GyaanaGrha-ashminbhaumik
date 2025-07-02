@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import generateAIContent from "../components/mgptAI/mgptConfig"
 // import generateAIContent from "../config/gemini";
 
 export const Context = createContext();
@@ -44,19 +45,15 @@ const ContextProvider = (props) => {
 
     let response = "";
 
-    // if (prompt != undefined) {
-    //   response = await generateAIContent(prompt);
-    // } else {
-    //   response = await generateAIContent(input);
-    //   //   setRecentPrompt(input); // Set the recent prompt to the input value....
-    // }
+      response = await generateAIContent(input);
+      //   setRecentPrompt(input); // Set the recent prompt to the input value....
 
-    response = `Ashmin Bhaumik is a passionate full-stack developer actively building a 
-   Gemini AI-powered clone app. He works with React, Tailwind CSS, MongoDB, and Express, 
-   and has a strong understanding of the MERN stack. He is a quick learner and is hands-on with handling prompts, 
-   fetching data from APIs, and user interaction logic in real time. He is also a team player, 
-   and is always eager to learn and grow in the field. He is excited to continue his journey as a 
-   full-stack developer and contribute to the Gemini AI community.`; // EXAMPLE VALUE FOR THE RESPONSE...
+  //   response = `Ashmin Bhaumik is a passionate full-stack developer actively building a 
+  //  Gemini AI-powered clone app. He works with React, Tailwind CSS, MongoDB, and Express, 
+  //  and has a strong understanding of the MERN stack. He is a quick learner and is hands-on with handling prompts, 
+  //  fetching data from APIs, and user interaction logic in real time. He is also a team player, 
+  //  and is always eager to learn and grow in the field. He is excited to continue his journey as a 
+  //  full-stack developer and contribute to the Gemini AI community.`; // EXAMPLE VALUE FOR THE RESPONSE...
 
     // TEST SIMULATION :
     // const response = async () => {

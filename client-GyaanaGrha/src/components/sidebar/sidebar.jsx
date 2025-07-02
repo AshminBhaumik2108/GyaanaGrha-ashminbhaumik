@@ -52,7 +52,7 @@ const sidebar = ({ data }) => {
         </div>
         {/* For the New Chat function : onClick() */}
 
-        <div className="new-chat">
+        <div className="new-chat" onClick={() => navigate("/mgpt-ashminbhaumik")}>
           <img src={assets.plus} alt="" className="plus" />
           {/* If the sidebar is extended, show the text or return null */}
           {/* It will keep only the PNG and the text will be Omited... */}

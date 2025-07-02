@@ -64,7 +64,6 @@ export default function Myfavourites() {
                   }
                   action={
                     <IconButton aria-label="settings">
-                      <MoreVertIcon />
                     </IconButton>
                   }
                   title={`${chart.officename || "Unknown Office"}`}
