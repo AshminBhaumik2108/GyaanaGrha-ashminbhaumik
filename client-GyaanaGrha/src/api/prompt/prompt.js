@@ -7,7 +7,8 @@ const getAllPrompts = async () => {
     // Chack of for the Value...
     return response.data;
   } catch (error) {
-    console.error("Error Fetching All Prompts", error);
+    console.log("Not Working ashmin");
+    // console.error("Error Fetching All Prompts", error);
     throw error;
   }
 };

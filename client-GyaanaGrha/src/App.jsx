@@ -7,6 +7,8 @@ import Neighourhoodengine from "./components/neighourhoodengine/neighourhoodengi
 import Dashboard from "./components/dashboard/dashboard.jsx";
 import Myarea from "./components/myarea/myarea.jsx";
 import Myfavourites from "./components/favourites/favourites.jsx";
+import MGPT from "./components/mgptAI/mgptAI.jsx";
+import GoogleMapComponent from "./components/googlemaps/googlemaps.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -43,6 +45,24 @@ function App() {
               <div style={{ display: "flex" }}>
                 <Sidebar />
                 <Myfavourites/>
+              </div>
+            }
+          />
+          <Route
+            path="/mgpt-ashminbhaumik"
+            element={
+              <div style={{ display: "flex" }}>
+                <Sidebar />
+                <MGPT/>
+              </div>
+            }
+          />
+          <Route
+            path="/maps-ashminbhaumik"
+            element={
+              <div style={{ display: "flex" }}>
+                <Sidebar />
+                <GoogleMapComponent/>
               </div>
             }
           />

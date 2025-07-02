@@ -13,10 +13,15 @@ const API_ = {
     CREATE: () => `${BASE_URL}/cart/create`,
     DELETE: (_id) => `${BASE_URL}/cart/delete/${_id}`,
   },
-  FAVOURITE : {
+  FAVOURITE: {
     GET_ALL: () => `${BASE_URL}/favourite/all`,
     CREATE: () => `${BASE_URL}/favourite/create`,
     DELETE: (_id) => `${BASE_URL}/favourite/delete/${_id}`,
+  },
+  MGPTAI: {
+    GET_PROMPT: () => `${BASE_URL}/mgptAI/all`,
+    CREATE_PROMPT: () => `${BASE_URL}/mgptAI/create`,
+    DELETE_PROMPT: (_id) => `${BASE_URL}/mgptAI/delete/${_id}`,
   },
 };
 

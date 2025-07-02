@@ -128,7 +128,11 @@ export default function myarea() {
                         />
                       </IconButton>
                       <IconButton aria-label="share">
-                        <ShareIcon />
+                        <ShareIcon
+                          onClick={() => {
+                            alert("Copy link : gyaanagrha-ashminbhaumik");
+                          }}
+                        />
                       </IconButton>
                     </div>
                     <div>
@@ -202,7 +206,7 @@ export default function myarea() {
                   <br />
                   <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
                   <br />
-                    <strong>WSM Score (Higher is Better) :</strong> NA
+                  <strong>WSM Score (Higher is Better) :</strong> NA
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>

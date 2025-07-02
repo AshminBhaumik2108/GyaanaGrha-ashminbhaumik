@@ -10,6 +10,7 @@ const filteredRoutes = require("./routes/filteredRoutes.js");
 const promptRoutes = require("./routes/promptRoutes.js")
 const cartRoutes = require("./routes/cartData.js")
 const favouriteRoutes = require("./routes/favouriteDataRoute.js")
+const mgptAIRoutes = require("./routes/mgptAIRoute.js")
 
 // CORS Middleware - CORS (Cross-Origin Resource Sharing)
 app.use(
@@ -25,7 +26,7 @@ app.use(
 app.use(express.json());
 
 // SETTING UP THE MONGODB CONNECTION...
-// Ensure MONGODB_URI is set
+// Ensure MONGODB_URI is set and we Have to change the IP to 0.0.0.0/0 for both SERVER and 3002 can access together... 
 const mongoURI = process.env.MONGODB_URI;
 if (!mongoURI) {
   console.error("Error: MONGODB_URI is not set in the environment variables.");
@@ -48,6 +49,7 @@ app.use('/', filteredRoutes);
 app.use('/promptState', promptRoutes);
 app.use('/cart', cartRoutes);
 app.use('/favourite', favouriteRoutes);
+app.use('/mgptAI', mgptAIRoutes);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
@@ -61,7 +63,7 @@ const URL = process.env.SERVER_DEVELOPMENT_URL || "http://localhost";
 // Set PORT dynamically. (Mainly it will always be Active at port 3000).
 const PORT = process.env.PORT || 3002;
 
-// Start the server
+// Start the server (It will not work for Online Server : It have its own URL for SocketConnection...)
 app.listen(PORT, () => {
   // console.log(`CLIENT sending on ${process.env.CLIENT_URL}`);
   console.log(`SERVER listening on ${URL}:${PORT}`);

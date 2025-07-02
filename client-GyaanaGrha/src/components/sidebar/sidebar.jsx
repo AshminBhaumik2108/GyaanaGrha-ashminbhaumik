@@ -45,10 +45,7 @@ const sidebar = ({ data }) => {
             className="menu"
           />
           {extended ? (
-            <h2
-              style={{ cursor: "pointer" }}
-              onClick={() => navigate("/")}
-            >
+            <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
               <span>GyaanaGrha</span> {/* Appplication Name */}
             </h2>
           ) : null}
@@ -91,6 +88,18 @@ const sidebar = ({ data }) => {
                 alt=""
               />
               <p>My Favourites</p>
+            </div>
+            <div
+              className="recent-entry"
+              onClick={() => navigate("/maps-ashminbhaumik")}
+            >
+              <img
+                src={
+                  "https://img.favpng.com/3/23/13/map-icon-png-vector-format-png-favpng-SwT3fkihcFphPUsrfz8zy4RnC.jpg"
+                }
+                alt=""
+              />
+              <p>Interactive Map Layer</p>
             </div>
             <div className="recent-entry">
               <img

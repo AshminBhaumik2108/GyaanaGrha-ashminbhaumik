@@ -6,7 +6,6 @@ const fetchPrompts = async (setPrevPrompts) => {
     return data;
   } catch (error) {
     console.error("Error while fetching prompts:", error);
-    setPrevPrompts([]);
   }
 };
 

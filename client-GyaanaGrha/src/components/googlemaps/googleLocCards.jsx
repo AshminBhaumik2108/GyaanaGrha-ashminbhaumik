@@ -18,14 +18,17 @@ import { Button } from "@mui/material";
 import { fetchNeighborhoodData } from "../../api/neighourEngine/neighourhoodEngine.js";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import {
-  fetchFavourites,
-  deleteFavourites,
-} from "../../api/favourites/useFavourites.js";
+import { fetchFavourites } from "../../api/favourites/useFavourites.js";
+import { useContext } from "react";
+import { Context } from "../../context/context.jsx";
 
-export default function Myfavourites() {
-  const [prevCarts, setPrevCarts] = useState([]);
+export default function googleLocCards() {
+  const [prevCarts, setPrevCarts] = useState([56.1234, 12.1234]);
 
+  const { latitude, longitude, setLatitude, setLongitude, setStatename } =
+    useContext(Context);
+
+  //   After data Changes fetch the data again and again....
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchFavourites();
@@ -36,26 +39,37 @@ export default function Myfavourites() {
   }, [prevCarts]);
 
   return (
-    <div className="my-area" style={{ padding: "20px 20px" }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          padding: "0px 10px",
-          justifyContent: "space-between",
-        }}
-      >
-        <h2>
-          My Favourites ( Space to save which you like - can be saved from My
-          Areas ) :{" "}
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div>
+        <h2 style={{ paddingTop: "0px" }}>
+          This is the Location Card area (Click on any card to check the
+          Location and Locations nearby - Only those which are added to
+          Favourites) :{" "}
         </h2>
-        {/* <h2>My Area ( Space to save details for Rent ) : </h2> */}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {prevCarts && prevCarts.length > 0 ? (
           prevCarts.map((chart, index) => (
             <div key={index} style={{ padding: "10px" }}>
-              <Card sx={{ maxWidth: 345, marginBottom: "20px" }}>
+              <Card
+                sx={{ maxWidth: 345, marginBottom: "20px" }}
+                // Setting the Value of the latitude and longitude
+                onClick={() => {
+                    console.log("Working");
+                  if (
+                    chart.latitude === "NA" &&
+                    chart.longitude === "NA"
+                  ) {
+                    alert(
+                      "Data Doesn't conatain latitude and longitude values"
+                    );
+                  } else {
+                    setLatitude(Number(chart.latitude));
+                    setLongitude(Number(chart.longitude));
+                    setStatename(chart.statename);
+                  }
+                }}
+              >
                 <CardHeader
                   avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -69,12 +83,6 @@ export default function Myfavourites() {
                   }
                   title={`${chart.officename || "Unknown Office"}`}
                   subheader={chart.pincode}
-                />
-                <CardMedia
-                  component="img"
-                  height="194"
-                  image="https://i.ytimg.com/vi/_L6jEtMK8No/maxresdefault.jpg"
-                  alt="Office image"
                 />
                 <CardContent>
                   <Typography variant="body2" sx={{ color: "text.secondary" }}>
@@ -90,13 +98,13 @@ export default function Myfavourites() {
                     <br />
                     <strong>District:</strong> {chart.district}
                     <br />
+                    <strong>Latitude</strong> {chart.latitude}
+                    <br />
+                    <strong>Longitude</strong> {chart.longitude}
+                    <br />
                     <strong>State Name:</strong> {chart.statename}
                     <br />
-                    <strong>Student Area:</strong> NEET / JEE
-                    <br />
                     <strong>Housing Complex:</strong> Dream Exotica
-                    <br />
-                    <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -107,38 +115,7 @@ export default function Myfavourites() {
                       alignItems: "center",
                       paddingLeft: "10px",
                     }}
-                  >
-                    <div>
-                      <IconButton aria-label="add to favorites">
-                        <FavoriteIcon
-                          onClick={() => {
-                            alert("Item already added to Favourites....");
-                          }}
-                        />
-                      </IconButton>
-                      <IconButton aria-label="share">
-                        <ShareIcon onClick={() => {
-                            alert("Copy link : gyaanagrha-ashminbhaumik");
-                          }}/>
-                      </IconButton>
-                    </div>
-                    <div>
-                      <img
-                        src={
-                          "https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
-                        }
-                        onClick={() => {
-                          deleteFavourites(chart._id);
-                        }}
-                        style={{
-                          width: "25px",
-                          height: "25px",
-                          marginLeft: "200px",
-                        }}
-                        alt="icon"
-                      />
-                    </div>
-                  </div>
+                  ></div>
                 </CardActions>
               </Card>
             </div>

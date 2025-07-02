@@ -98,7 +98,7 @@ export default function NeighourhoodEngine() {
       >
         <h2>
           Search for your Specific Areas (By Statename, Pincode, District OR By
-          Anyone of them) :{" "}
+          Anyone of them : If value returns Empty Check for Spelling Mistakes) :{" "}
         </h2>
         <div
           className="cart-container"
