@@ -43,7 +43,7 @@ export default function myarea() {
           justifyContent: "space-between",
         }}
       >
-        <h2>My Area ( Space to save details for Rent ) : </h2>
+        <h2>My Area ( An area to save details where I can have a Rent ) : </h2>
         {/* <h2>My Area ( Space to save details for Rent ) : </h2> */}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>

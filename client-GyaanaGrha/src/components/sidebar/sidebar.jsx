@@ -104,20 +104,20 @@ const sidebar = ({ data }) => {
             <div className="recent-entry">
               <img
                 src={
-                  "https://worldarchitecture.org/cdnimgfiles/extuploadc/pers01.jpg"
+                  "https://ngreifer.github.io/WeightIt/logo.png"
                 }
                 alt=""
               />
-              <p>Community Hub</p>
+              <p>Weight Score Model</p>
             </div>
             <div className="recent-entry">
               <img
                 src={
-                  "https://cdnbbsr.s3waas.gov.in/s3c92a10324374fac681719d63979d00fe/uploads/2023/06/2023102611.png"
+                  "https://www.clipartmax.com/png/middle/239-2399554_community-community-centre-clip-art.png"
                 }
                 alt=""
               />
-              <p>Analytics</p>
+              <p>Community Hub</p>
             </div>
           </div>
         ) : null}

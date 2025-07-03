@@ -20,13 +20,10 @@ export default function mgptAI() {
   } = useContext(Context);
   // State variable for the Modal to show...
   const [showModal, setShowModal] = useState(false);
-  const message = `No animals were harmed in the creation, development, testing, 
-                and deployment of this website. We are committed to ethical digital 
-                practices and sustainability in our work.`;
 
   return (
     <>
-      <div className="main" style={{ paddingRight: "0px" }}>
+      <div className="main" style={{ padding: "0px 0px" , padding: "relative", justifyContent: "center", alignItems: "center", height: "100vh", width: "80vh", padding: "0px", boxSizing: "border-box"}}>
         <div className="nav">
           <p className="nav-titles">MGPT - ashminbhaumik</p>
           <img
@@ -45,7 +42,7 @@ export default function mgptAI() {
                   <span className="greet-text">Hi, Ashmin!</span>
                 </p>
                 <p className="greet-subtext">
-                  How are you today? How can I assist you with MK?
+                  How are you today? How can I assist you with my GyaanaGrha?
                 </p>
               </div>
               <div className="cards">
@@ -173,7 +170,7 @@ export default function mgptAI() {
               </div>
             </div>
             <p className="bottom-info">
-              M-GPT is the whisper of two minds dancing in one soul — curious,
+              MGPT is the whisper of two minds dancing in one soul — curious,
               clever, and forever chasing the wind of possibility
             </p>
           </div>
@@ -185,35 +182,12 @@ export default function mgptAI() {
           justifyContent: "center",
           alignItems: "center",
           height: "70vh",
-          paddingLeft: "0px",
+          paddingTop: "25vh",
+          paddingLeft: "180px",
           paddingRight: "30px",
         }}
       >
-        <h2
-          style={{
-            fontSize: "1.7rem",
-            background: "linear-gradient(16deg, #4b90ff, #ff5546)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            paddingLeft: "200px",
-            fontFamily: "revert",
-            // paddingRight: "10px",
-          }}
-        >
-          MGPT: Your AI-Powered Relocation Guide
-          <br />
-          <br />
-          Using advanced RAG models and LangChain, <br />
-          MGPT understands your academic goals and <br />
-          analyzes your current location.
-          <br />
-          Whether you're preparing for NEET, JEE, or UPSC, <br />
-          it recommends ideal study-friendly neighborhoods <br />
-          with nearby coaching centers, estimated rental prices <br />
-          and learning ecosystems—so you can focus on <br />
-          success while we optimize your surroundings.
-        </h2>
+        <img src={"https://assets.lummi.ai/assets/QmPxwxkKX4ZtVTzoAXxNokAn6kdhHfvH3Z1SooFeGm1hXc?auto=format&w=640"} alt="" style={{width:"100%"}}/>
       </div>
     </>
   );
