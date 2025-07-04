@@ -11,13 +11,18 @@ import { fetchPrompts, deleteData } from "../../api/prompt/fetchPrompt.js";
 
 const sidebar = ({ data }) => {
   // Context :
-  const { onSent, prevPrompts, setRecentPrompt, newChat, setPrevPrompts } =
-    useContext(Context);
+  const {
+    onSent,
+    prevPrompts,
+    setRecentPrompt,
+    newChat,
+    setPrevPrompts,
+    extended,
+    setExtended,
+  } = useContext(Context);
   // Fo the Navigation of the application we re using it....
   const navigate = useNavigate();
   // State variable for the sidebar component...
-  // expand and collapse the sidebar...
-  const [extended, setExtended] = useState(true);
   // Context API : to access the functions and variables from the context...
   const queryClient = useQueryClient();
 
@@ -37,22 +42,29 @@ const sidebar = ({ data }) => {
       <div className="top">
         {/* setExtend() function: for the Value to change */}
         {/* onClick = {() => setExtend(!extend)} : for the Value to change */}
-        <div style={{ display: "flex", alignItems: "center", gap: "40px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "40px"}}>
           <img
             onClick={() => setExtended(!extended)}
-            src={assets.menu}
+            src={"https://www.svgrepo.com/show/94793/menu-button-of-three-horizontal-lines.svg"}
             alt=""
             className="menu"
           />
           {extended ? (
-            <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
-              <span>GyaanaGrha</span> {/* Appplication Name */}
-            </h2>
+            <img
+              onClick={() => navigate("/")} // dashboard Page...
+              src={assets.gyaanagrha}
+              alt=""
+              className="logo"
+              style={{ width: "11vh", cursor: "pointer" }}
+            />
           ) : null}
         </div>
         {/* For the New Chat function : onClick() */}
 
-        <div className="new-chat" onClick={() => navigate("/mgpt-ashminbhaumik")}>
+        <div
+          className="new-chat"
+          onClick={() => navigate("/mgpt-ashminbhaumik")}
+        >
           <img src={assets.plus} alt="" className="plus" />
           {/* If the sidebar is extended, show the text or return null */}
           {/* It will keep only the PNG and the text will be Omited... */}
@@ -61,7 +73,10 @@ const sidebar = ({ data }) => {
 
         {/* for the Recent Entry : If extended = false, return null else show the whole div... */}
         {extended ? (
-          <div className="recent">
+          <div
+            className="recent"
+            style={{ display: "flex", flexDirection: "column", width: "10vw" }}
+          >
             <p className="recent-title">Components</p>
             {/* Static Recent Entries : */}
             {/* These are the static entries for the recent prompts... */}
@@ -76,6 +91,13 @@ const sidebar = ({ data }) => {
                 alt=""
               />
               <p>Neighborhood Fit Area</p>
+            </div>
+            <div className="recent-entry" onClick={() => navigate("/my-area")}>
+              <img
+                src={"https://cdn-icons-png.freepik.com/512/7835/7835563.png"}
+                alt=""
+              />
+              <p>My Areas</p>
             </div>
             <div
               className="recent-entry"
@@ -101,23 +123,28 @@ const sidebar = ({ data }) => {
               />
               <p>Interactive Map Layer</p>
             </div>
-            <div className="recent-entry">
+            <div
+              className="recent-entry"
+              onClick={() => navigate("/wsm-ashminbhaumik")}
+            >
               <img
-                src={
-                  "https://ngreifer.github.io/WeightIt/logo.png"
-                }
+                src={"https://cdn-icons-png.flaticon.com/512/8618/8618881.png"}
                 alt=""
               />
               <p>Weight Score Model</p>
             </div>
-            <div className="recent-entry">
+            <div
+              className="recent-entry"
+              // onClick={() => window.open("https://docs.google.com/document/d/1Z7lHovSDx-CUgLqO6Uvv_5NLutn8gDzedkjWCStKYUM/edit?usp=sharing")}
+              onClick={() => {
+                alert("Documentation is under construction...");
+              }}
+            >
               <img
-                src={
-                  "https://www.clipartmax.com/png/middle/239-2399554_community-community-centre-clip-art.png"
-                }
+                src={"https://cdn-icons-png.freepik.com/512/7519/7519062.png"}
                 alt=""
               />
-              <p>Community Hub</p>
+              <p>Docs. of Gyaanagrha</p>
             </div>
           </div>
         ) : null}
@@ -132,7 +159,7 @@ const sidebar = ({ data }) => {
             </div>
             <div className="recent-state">
               {/* Dynamic Entries fetched by the API from MongoDB : */}
-              {prevPrompts?.map((prompt, index) => (
+              {prevPrompts?.slice(0, 10).map((prompt, index) => (
                 <div key={index} className="recent-entry">
                   {prompt.input ? (
                     <>
@@ -175,7 +202,14 @@ const sidebar = ({ data }) => {
       {/* Bottom Static Entries :  */}
       <div className="bottom">
         {/* functions : to check for the Value to chenge according to the functions */}
-        <div className="bottom-item recent-entry-bottom">
+        <div
+          className="bottom-item recent-entry-bottom"
+          onClick={() => {
+            alert(
+              "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅\n\nWhatsapp No : +91 9612063328\nLinkedIn : ashmin-bhaumik\nEmail : ashmin.bhaumik03@gmail.com"
+            );
+          }}
+        >
           <img
             src={
               "https://st.depositphotos.com/1432405/51923/v/450/depositphotos_519232122-stock-illustration-help-service-center-icon-color.jpg"
@@ -185,7 +219,14 @@ const sidebar = ({ data }) => {
           {/* for bottom: Chat */}
           {extended ? <p>Help</p> : null}
         </div>
-        <div className="bottom-item recent-entry-bottom">
+        <div
+          className="bottom-item recent-entry-bottom"
+          onClick={() => {
+            alert(
+              "👍 👍 👍 👍 👍 👍 👍 \nJust View Details : Rest Everything Works Normally like an Website"
+            );
+          }}
+        >
           <img
             src={
               "https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png"

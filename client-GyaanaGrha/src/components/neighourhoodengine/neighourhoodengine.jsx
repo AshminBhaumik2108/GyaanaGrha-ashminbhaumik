@@ -25,6 +25,49 @@ import { useNavigate } from "react-router-dom";
 import { pushCarts } from "../../api/cart/useCart.js";
 
 export default function NeighourhoodEngine() {
+  const validStates = [
+    // 29 States
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    "Jammu and Kashmir",
+
+    // 8 Union Territories
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Delhi",
+    "Lakshadweep",
+    "Puducherry",
+    "Ladakh",
+    "Lakshadweep",
+  ];
+
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   // Keep the inputs for the files as JSON:
@@ -33,6 +76,13 @@ export default function NeighourhoodEngine() {
   const [pincode, setPincode] = useState("");
   const [exam, setExam] = useState("");
   const [staticData, setStaticData] = useState(true);
+  const [search, setSearch] = useState(true);
+
+  // Valid if the stateName is in the validStates array or NOT by ashminbhaumik.....
+  // SOME : Works like is any of the stateName is in the validStates array
+  const isValidState = validStates.some(
+    (s) => s.toLowerCase() === stateName.toLowerCase() // No Case Sensitive...
+  );
 
   const navigate = useNavigate(); // for navigation....
 
@@ -58,6 +108,7 @@ export default function NeighourhoodEngine() {
       console.error("Error fetching data", err);
     } finally {
       // setLoading(false);
+      setSearch(true);
     }
   };
 
@@ -87,9 +138,7 @@ export default function NeighourhoodEngine() {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "0",
-        padding: "0",
-        margin: "0",
+        width: "89vw",
       }}
     >
       <div className="neighourhood-engine">
@@ -106,32 +155,28 @@ export default function NeighourhoodEngine() {
           }}
         >
           <h2>
-            Search for your Specific Areas (By Statename, Pincode, District OR
-            By Anyone of them : If value returns Empty Check for Spelling
-            Mistakes) :{" "}
+            NEIGHOURHOOD FIT ENGINE <br />
+            <p style={{ paddingTop: "9px" }}>
+              Search for your Specific Areas (By Statename, Pincode, District OR
+              By Anyone of them OTHER than Exam Preferences)
+            </p>
           </h2>
-          <div
-            className="cart-container"
-            style={{
-              cursor: "pointer",
-              border: "2px solid black",
-              padding: "15px 30px",
-              fontWeight: "bold",
-              borderRadius: "20px",
-            }}
-            onClick={() => navigate("/my-area")}
-          >
-            My Areas
-          </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <div
             className="input-section"
             style={{
               display: "flex",
               gap: "20px",
-              width: "60%",
+              width: "100%",
               paddingTop: "5px",
+              justifyContent: "center",
             }}
           >
             <TextField
@@ -145,15 +190,23 @@ export default function NeighourhoodEngine() {
               style={{ width: "100%" }}
             />
             <TextField
-              onChange={(e) => setPincode(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value;
+                if (/^\d*$/.test(value)) {
+                  // only allows digits (0–9)
+                  setPincode(value);
+                }
+              }}
               value={pincode}
               className="input-field"
               id="outlined-basic"
               label="Pincode"
               placeholder="Enter PINCODE"
               variant="outlined"
+              inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
               style={{ width: "100%" }}
             />
+
             <TextField
               onChange={(e) => setDistrict(e.target.value)}
               value={district}
@@ -174,31 +227,56 @@ export default function NeighourhoodEngine() {
               multiline
               style={{ width: "100%" }}
             />
-          </div>
-          <div className="button-search">
-            <Button
-              onClick={() => {
-                if (stateName !== "" || pincode !== "" || district !== "") {
-                  onSearch();
-                  pushPrompt(stateName);
-                } else {
-                  alert("Please enter at least one field");
-                }
-              }}
-              variant="outlined"
+            <div
+              className="button-search"
               style={{
-                color: "white",
-                width: "100px",
-                borderColor: "black",
-                padding: "10px",
-                paddingBottom: "15px",
-                borderRadius: "20px",
-                fontWeight: "bold",
-                background: "#4b90ff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              SEARCH
-            </Button>{" "}
+              <div
+                onClick={() => {
+                  if (pincode !== "") {
+                    if (pincode.length !== 6) {
+                      alert("Please enter a valid PINCODE");
+                      setSearch(true);
+                      return;
+                    }
+                  }
+                  if (search) {
+                    setSearch(false);
+                    if (stateName !== "" || pincode !== "" || district !== "") {
+                      if (!isValidState) {
+                        alert(
+                          "Please enter a valid State name. Check for Spelling Errors..."
+                        );
+                        setSearch(true);
+                      } else {
+                        onSearch();
+                        pushPrompt(stateName);
+                      }
+                    } else {
+                      alert("Please enter at least one field");
+                    }
+                  }
+                }}
+                style={{
+                  color: "blue",
+                  width: "100px",
+                  height: "45px",
+                  border: "2px solid black",
+                  borderRadius: "15px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "#e0f0ff",
+                }}
+              >
+                SEARCH
+              </div>
+            </div>
           </div>
         </div>
         {staticData ? (
@@ -227,7 +305,7 @@ export default function NeighourhoodEngine() {
                           {/* <MoreVertIcon /> */}
                         </IconButton>
                       }
-                      title={"Mumbai Circle"}
+                      title={"Chennai Circle"}
                       subheader="September 14, 2016"
                     />
                     <CardMedia
@@ -631,164 +709,153 @@ export default function NeighourhoodEngine() {
                 </div>
               </div>
             </>
-            <h1 style={{ textAlign: "center", padding: "20px 20px" }}>
-              Neighborhood Fit Engine:
-            </h1>
-            <h2 style={{ textAlign: "center", padding: "20px 20px" }}>
-              <br /> An AI-powered system that intelligently recommends
-              residential areas based on your educational and career needs. When
-              users enter details such as state name, district, pincode, and the
-              exam they’re preparing for (e.g., NEET, JEE), the engine fetches
-              data from open government APIs (like data.gov.in), processes it
-              through our backend, <br />
-              and then presents location-based suggestions on the client
-              side.These results highlight areas with strong academic ecosystems
-              including coaching centers, <br />
-              libraries, and student-friendly infrastructure, helping
-              individuals make data-driven decisions about where to live <br />
-              for maximum productivity and growth.
-            </h2>
           </>
         ) : (
-          <div className="card">
-            {loading ? (
-              <div
-                style={{
-                  paddingTop: "100px",
-                  paddingLeft: "550px",
-                  paddingRight: "700px",
-                  textAlign: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
+          <div style={{ display: "flex", flex: 1, overflowY: "auto" }}>
+            <div className="card">
+              {loading ? (
+                <div
+                  style={{
+                    paddingTop: "100px",
+                    paddingLeft: "550px",
+                    paddingRight: "700px",
+                    textAlign: "center",
                     justifyContent: "center",
-                    paddingBottom: "30px",
                   }}
                 >
-                  <CircularProgress />
-                </Box>
-                <h3>
-                  Loading........ Please wait while the data is being processed
-                  for the Area you are serching for ...
-                </h3>
-              </div>
-            ) : (
-              // used Slicing : Since to show less number of results for smooth view....
-              <>
-                {results?.slice(0, 10).map((item, index) => (
-                  <Card
-                    sx={{ maxWidth: 345, marginBottom: "20px" }}
-                    key={index}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      paddingBottom: "30px",
+                    }}
                   >
-                    <CardHeader
-                      avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                          {"AB"}
-                        </Avatar>
-                      }
-                      action={
-                        <IconButton aria-label="settings">
-                          {/* <MoreVertIcon /> */}
-                        </IconButton>
-                      }
-                      title={`${item.officename || "Unknown Office"}`}
-                      subheader={item.pincode}
-                    />
-                    <CardMedia
-                      component="img"
-                      height="194"
-                      image="https://i.ytimg.com/vi/_L6jEtMK8No/maxresdefault.jpg"
-                      alt="Office image"
-                    />
-                    <CardContent>
-                      <Typography
-                        variant="body2"
-                        sx={{ color: "text.secondary" }}
-                      >
-                        <strong>Region Name:</strong> {item.regionname}
-                        <br />
-                        <strong>Division Name:</strong> {item.divisionname}
-                        <br />
-                        <strong>Office Name:</strong> {item.officename}
-                        <br />
-                        <strong>Pincode:</strong> {item.pincode}
-                        <br />
-                        <strong>Office Type:</strong> {item.officetype}
-                        <br />
-                        <strong>District:</strong> {item.district}
-                        <br />
-                        <strong>State Name:</strong> {item.statename}
-                        <br />
-                        <strong>Student Area:</strong> NEET / JEE
-                        <br />
-                        <strong>Housing Complex:</strong> Dream Exotica
-                        <br />
-                        <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
-                        <br />
-                        <strong>Average WSM Score:</strong> 89%
-                      </Typography>
-                    </CardContent>
-                    <CardActions disableSpacing>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          paddingLeft: "10px",
-                        }}
-                      >
-                        <div>
-                          <IconButton aria-label="add to favorites">
-                            {/* <FavoriteIcon
+                    <CircularProgress />
+                  </Box>
+                  <h3>
+                    Loading ........ <br />
+                    Please wait while the data is being processed for the Area
+                    you are Searching
+                  </h3>
+                </div>
+              ) : (
+                // used Slicing : Since to show less number of results for smooth view....
+                <>
+                  {results?.slice(0, 100).map((item, index) => (
+                    <Card
+                      sx={{ maxWidth: 345, marginBottom: "20px" }}
+                      key={index}
+                    >
+                      <CardHeader
+                        avatar={
+                          <Avatar
+                            sx={{ bgcolor: red[500] }}
+                            aria-label="recipe"
+                          >
+                            {"AB"}
+                          </Avatar>
+                        }
+                        action={
+                          <IconButton aria-label="settings">
+                            {/* <MoreVertIcon /> */}
+                          </IconButton>
+                        }
+                        title={`${item.officename || "Unknown Office"}`}
+                        subheader={item.pincode}
+                      />
+                      <CardMedia
+                        component="img"
+                        height="194"
+                        image="https://i.ytimg.com/vi/_L6jEtMK8No/maxresdefault.jpg"
+                        alt="Office image"
+                      />
+                      <CardContent>
+                        <Typography
+                          variant="body2"
+                          sx={{ color: "text.secondary" }}
+                        >
+                          <strong>Region Name:</strong> {item.regionname}
+                          <br />
+                          <strong>Division Name:</strong> {item.divisionname}
+                          <br />
+                          <strong>Office Name:</strong> {item.officename}
+                          <br />
+                          <strong>Pincode:</strong> {item.pincode}
+                          <br />
+                          <strong>Office Type:</strong> {item.officetype}
+                          <br />
+                          <strong>District:</strong> {item.district}
+                          <br />
+                          <strong>State Name:</strong> {item.statename}
+                          <br />
+                          <strong>Student Area:</strong> NEET / JEE
+                          <br />
+                          <strong>Housing Complex:</strong> Dream Exotica
+                          <br />
+                          <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
+                          <br />
+                          <strong>Average WSM Score:</strong> 89%
+                        </Typography>
+                      </CardContent>
+                      <CardActions disableSpacing>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            paddingLeft: "10px",
+                          }}
+                        >
+                          <div>
+                            <IconButton aria-label="add to favorites">
+                              {/* <FavoriteIcon
                             onClick={() => {
                               alert(
                                 "Add House to areas first (Put Favourite from My Areas -> Top Right)"
                               );
                             }}
                           /> */}
-                          </IconButton>
-                          <IconButton aria-label="share">
-                            {/* <ShareIcon /> */}
-                          </IconButton>
+                            </IconButton>
+                            <IconButton aria-label="share">
+                              {/* <ShareIcon /> */}
+                            </IconButton>
+                          </div>
+                          <div style={{ display: "flex", paddingLeft: "70px" }}>
+                            <img
+                              src={
+                                "https://static.thenounproject.com/png/47398-200.png"
+                              }
+                              onClick={() => {
+                                const payload = {
+                                  circlename: item.circlename,
+                                  regionname: item.regionname,
+                                  divisionname: item.divisionname,
+                                  officename: item.officename,
+                                  pincode: item.pincode,
+                                  officetype: item.officetype,
+                                  delivery: item.delivery,
+                                  district: item.district,
+                                  statename: item.statename,
+                                  latitude: item.latitude,
+                                  longitude: item.longitude,
+                                };
+                                alert("House has been added to areas"); // for the view of getting whether the cart image is working or not...
+                                pushCarts(payload);
+                              }}
+                              style={{
+                                width: "40px",
+                                height: "40px",
+                                marginLeft: "190px",
+                              }}
+                            />
+                          </div>
                         </div>
-                        <div style={{ display: "flex", paddingLeft: "70px" }}>
-                          <img
-                            src={
-                              "https://static.thenounproject.com/png/47398-200.png"
-                            }
-                            onClick={() => {
-                              const payload = {
-                                circlename: item.circlename,
-                                regionname: item.regionname,
-                                divisionname: item.divisionname,
-                                officename: item.officename,
-                                pincode: item.pincode,
-                                officetype: item.officetype,
-                                delivery: item.delivery,
-                                district: item.district,
-                                statename: item.statename,
-                                latitude: item.latitude,
-                                longitude: item.longitude,
-                              };
-                              alert("House has been added to areas"); // for the view of getting whether the cart image is working or not...
-                              pushCarts(payload);
-                            }}
-                            style={{
-                              width: "40px",
-                              height: "40px",
-                              marginLeft: "190px",
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </CardActions>
-                  </Card>
-                ))}
-              </>
-            )}
+                      </CardActions>
+                    </Card>
+                  ))}
+                </>
+              )}
+            </div>
           </div>
         )}
       </div>

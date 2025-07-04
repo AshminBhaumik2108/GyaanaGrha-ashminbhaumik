@@ -34,7 +34,7 @@ export default function myarea() {
   }, [prevCarts]);
 
   return (
-    <div className="my-area" style={{ padding: "20px 20px" }}>
+    <div className="my-area" style={{ padding: "20px 20px", width:"89vw" }}>
       <div
         style={{
           display: "flex",
@@ -43,7 +43,7 @@ export default function myarea() {
           justifyContent: "space-between",
         }}
       >
-        <h2>My Area ( An area to save details where I can have a Rent ) : </h2>
+        <h2>MY AREAS <br/><p style={{paddingTop:"10px"}}>Section to record accommodation details, including rental information ( Mainly whatever the Customers Like... )</p> </h2>
         {/* <h2>My Area ( Space to save details for Rent ) : </h2> */}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -57,18 +57,13 @@ export default function myarea() {
                       {chart.statename?.[0] || "A"}
                     </Avatar>
                   }
-                  action={
-                    <IconButton aria-label="settings">
-                      <MoreVertIcon />
-                    </IconButton>
-                  }
                   title={`${chart.officename || "Unknown Office"}`}
                   subheader={chart.pincode}
                 />
                 <CardMedia
                   component="img"
                   height="194"
-                  image="https://i.ytimg.com/vi/_L6jEtMK8No/maxresdefault.jpg"
+                  image="https://static.vecteezy.com/system/resources/thumbnails/023/331/708/small_2x/ai-generative-exterior-of-modern-luxury-house-with-garden-and-beautiful-sky-photo.jpg"
                   alt="Office image"
                 />
                 <CardContent>
@@ -177,7 +172,7 @@ export default function myarea() {
               <CardMedia
                 component="img"
                 height="194"
-                image="https://i.ytimg.com/vi/_L6jEtMK8No/maxresdefault.jpg"
+                image="https://static.vecteezy.com/system/resources/thumbnails/023/331/708/small_2x/ai-generative-exterior-of-modern-luxury-house-with-garden-and-beautiful-sky-photo.jpg"
                 alt="Office image"
               />
               <CardContent>

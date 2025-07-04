@@ -14,6 +14,7 @@ import gallery from "./gallery.png";
 import send from "./send.png";
 import timer from "./timer.png";
 import deleteIcon from "./delete.png";
+import gyaanagrha from "./logo.jpeg"
 
 // The assets to export to the rest of the app...
 export const assets = {
@@ -32,4 +33,5 @@ export const assets = {
   send,
   timer,
   deleteIcon,
+  gyaanagrha,
 };

@@ -14,7 +14,6 @@ async function generateAIContent(prompt) {
     infrastructure, and future growth potential, and how are these property recommendations
     personalized for students preparing for competitive exams like JEE or UPSC?`;
 
-
     const descPrompt = `You are a highly knowledgeable and articulate AI assistant developed specifically for the GyaanaGrha platform.
 
 Your role is to answer queries strictly related to:

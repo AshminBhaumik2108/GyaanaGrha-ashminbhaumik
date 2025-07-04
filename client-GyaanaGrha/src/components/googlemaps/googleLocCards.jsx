@@ -40,13 +40,6 @@ export default function googleLocCards() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div>
-        <h2 style={{ paddingTop: "0px" }}>
-          This is the Location Card area (Click on any card to check the
-          Location and Locations nearby - Only those which are added to
-          Favourites) :{" "}
-        </h2>
-      </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {prevCarts && prevCarts.length > 0 ? (
           prevCarts.map((chart, index) => (
@@ -55,11 +48,8 @@ export default function googleLocCards() {
                 sx={{ maxWidth: 345, marginBottom: "20px" }}
                 // Setting the Value of the latitude and longitude
                 onClick={() => {
-                    console.log("Working");
-                  if (
-                    chart.latitude === "NA" &&
-                    chart.longitude === "NA"
-                  ) {
+                  console.log("Working");
+                  if (chart.latitude === "NA" && chart.longitude === "NA") {
                     alert(
                       "Data Doesn't conatain latitude and longitude values"
                     );
@@ -76,7 +66,6 @@ export default function googleLocCards() {
                       {"AB"}
                     </Avatar>
                   }
-
                   title={`${chart.officename || "Unknown Office"}`}
                   subheader={chart.pincode}
                 />

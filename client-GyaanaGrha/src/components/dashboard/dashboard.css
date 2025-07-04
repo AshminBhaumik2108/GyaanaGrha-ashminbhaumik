@@ -1,19 +1,26 @@
+.dashboard {
+  background-image: url("https://images.unsplash.com/photo-1614850523060-8da1d56ae167?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlnaHQlMjBjb2xvdXJ8ZW58MHx8MHx8fDA%3D"); /* example from Unsplash */
+}
+
 .greet {
-    margin: 50px 0px;
-    font-size: 56px;
-    color: #ced0ee;
-    font-weight: 500;
-    padding: 20px;
+  margin: 50px 0px;
+  font-size: 56px;
+  color: #ced0ee;
+  font-weight: 500;
+  padding: 20px 20px;
 }
 
 .greet span {
-    background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
-    background: linear-gradient(16deg, #4b90ff, #ff5546); /* add standard property */
-    /* -webkit-background-clip: Tells the background colour for the text */
-    -webkit-background-clip: text;
-    background-clip: text; /* add standard property */
-    -webkit-text-fill-color: transparent;
-
+  background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+  background: linear-gradient(
+    16deg,
+    #4b90ff,
+    #ff5546
+  ); /* add standard property */
+  /* -webkit-background-clip: Tells the background colour for the text */
+  -webkit-background-clip: text;
+  background-clip: text; /* add standard property */
+  -webkit-text-fill-color: transparent;
 }
 
 .footer {

@@ -23,15 +23,32 @@ export default function mgptAI() {
 
   return (
     <>
-      <div className="main" style={{ padding: "0px 0px" , padding: "relative", justifyContent: "center", alignItems: "center", height: "100vh", width: "80vh", padding: "0px", boxSizing: "border-box"}}>
+      <div
+        className="main"
+        style={{
+          padding: "0px 0px",
+          padding: "relative",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          width: "89vw",
+          padding: "0px",
+          boxSizing: "border-box",
+        }}
+      >
         <div className="nav">
-          <p className="nav-titles">MGPT - ashminbhaumik</p>
-          <img
-            src={
-              "https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"
-            }
-            alt=""
-          />
+          <h3
+            className="nav-titles"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              color: "black",
+            }}
+          >
+            MGPT AI{" "}
+          </h3>
+          <img style={{ width: "5vw" }} src={assets.gyaanagrha} alt="" />
         </div>
         <div className="main-container">
           {/* If showResult = true, show the result else show the cards */}
@@ -41,8 +58,8 @@ export default function mgptAI() {
                 <p>
                   <span className="greet-text">Hi, Ashmin!</span>
                 </p>
-                <p className="greet-subtext">
-                  How are you today? How can I assist you with my GyaanaGrha?
+                <p className="greet-subtext" style={{ color: "black" }}>
+                  How are you today? How can I assist you with my Gyaana-grha?
                 </p>
               </div>
               <div className="cards">
@@ -50,10 +67,11 @@ export default function mgptAI() {
                 {/* 1: */}
                 <div className="card">
                   <p className="card-title">
-                    Suggest some ways how to make a website for myself
+                    Welcome to GyaanaGrha — where every location unlocks a new
+                    chapter of your learning journey
                     <img
                       src={
-                        "https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"
+                        "https://cdn-icons-png.freepik.com/512/13078/13078445.png"
                       }
                       alt=""
                     />
@@ -62,10 +80,11 @@ export default function mgptAI() {
                 {/* 2: */}
                 <div className="card">
                   <p className="card-title">
-                    Make the best website for my beautiful flowers
+                    Education meets environment — find where your knowledge
+                    grows best
                     <img
                       src={
-                        "https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"
+                        "https://cdn-icons-png.freepik.com/512/18577/18577280.png"
                       }
                       alt=""
                     />
@@ -74,10 +93,11 @@ export default function mgptAI() {
                 {/* 3: */}
                 <div className="card">
                   <p className="card-title">
-                    How to make AI more Attractive
+                    Discover places that don't just fit your needs, but fuel
+                    your dreams
                     <img
                       src={
-                        "https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"
+                        "https://cdn-icons-png.freepik.com/512/11782/11782442.png"
                       }
                       alt=""
                     />
@@ -86,10 +106,11 @@ export default function mgptAI() {
                 {/* 4: */}
                 <div className="card">
                   <p className="card-title">
-                    Ways for poking my AI
+                    Smart moves start here — GyaanaGrha helps you live where you
+                    learn
                     <img
                       src={
-                        "https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"
+                        "https://cdn-icons-png.freepik.com/512/7831/7831132.png"
                       }
                       alt=""
                     />
@@ -101,7 +122,12 @@ export default function mgptAI() {
             // If showResult = true, show the result section for the user Mahak Khandelwal....
             <div className="result">
               <div className="result-title">
-                <img src={"https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"} alt="" />
+                <img
+                  src={
+                    "https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"
+                  }
+                  alt=""
+                />
                 <p>{recentPrompt}</p>
               </div>
               <div className="result-data">
@@ -134,7 +160,7 @@ export default function mgptAI() {
                 onChange={(event) => setInput(event.target.value)}
                 value={input}
                 type="text"
-                placeholder="Ask Anything"
+                placeholder="Ask Anything related to NFP, Educational Zones..."
                 onKeyDown={(event) => {
                   // Chack for the Value type and how the object is Returned..
                   // console.log(event);
@@ -175,19 +201,6 @@ export default function mgptAI() {
             </p>
           </div>
         </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "70vh",
-          paddingTop: "25vh",
-          paddingLeft: "180px",
-          paddingRight: "30px",
-        }}
-      >
-        <img src={"https://assets.lummi.ai/assets/QmPxwxkKX4ZtVTzoAXxNokAn6kdhHfvH3Z1SooFeGm1hXc?auto=format&w=640"} alt="" style={{width:"100%"}}/>
       </div>
     </>
   );
