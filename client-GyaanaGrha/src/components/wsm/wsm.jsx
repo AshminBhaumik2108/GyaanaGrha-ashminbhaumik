@@ -234,7 +234,7 @@ export default function wsm() {
           flex: 1,
           overflowY: "auto",
           maxHeight: "89vh",
-          paddingLeft : "0px",
+          paddingLeft: "0px",
           paddingRight: "10px",
           marginTop: "10px",
           justifyContent: "center",
