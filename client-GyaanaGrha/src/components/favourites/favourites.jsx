@@ -53,7 +53,15 @@ export default function Myfavourites() {
         </h2>
         {/* <h2>My Area ( Space to save details for Rent ) : </h2> */}
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          overflowY: "auto",
+          maxHeight: "90vh",
+          flexWrap: "wrap",
+        }}
+      >
         {prevCarts && prevCarts.length > 0 ? (
           prevCarts.map((chart, index) => (
             <div key={index} style={{ padding: "10px" }}>
@@ -107,13 +115,6 @@ export default function Myfavourites() {
                     }}
                   >
                     <div>
-                      <IconButton aria-label="add to favorites">
-                        <FavoriteIcon
-                          onClick={() => {
-                            alert("Item already added to Favourites....");
-                          }}
-                        />
-                      </IconButton>
                       <IconButton aria-label="share">
                         <ShareIcon
                           onClick={() => {
@@ -133,7 +134,7 @@ export default function Myfavourites() {
                         style={{
                           width: "25px",
                           height: "25px",
-                          marginLeft: "200px",
+                          marginLeft: "250px",
                         }}
                         alt="icon"
                       />
@@ -200,9 +201,6 @@ export default function Myfavourites() {
                   }}
                 >
                   <div>
-                    <IconButton aria-label="add to favorites">
-                      <FavoriteIcon />
-                    </IconButton>
                     <IconButton aria-label="share">
                       <ShareIcon />
                     </IconButton>
@@ -215,7 +213,7 @@ export default function Myfavourites() {
                       style={{
                         width: "25px",
                         height: "25px",
-                        marginLeft: "200px",
+                        marginLeft: "250px",
                       }}
                       alt="icon"
                     />

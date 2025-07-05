@@ -43,7 +43,8 @@ export default function googleLocCards() {
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {prevCarts && prevCarts.length > 0 ? (
           prevCarts.map((chart, index) => (
-            <div key={index} style={{ padding: "10px" }}>
+            // Each Card : Will display the data and the cursor will change like a pointer for the Card : To tell for Click....
+            <div key={index} style={{ padding: "10px" , cursor: "pointer"}}>
               <Card
                 sx={{ maxWidth: 345, marginBottom: "20px" }}
                 // Setting the Value of the latitude and longitude

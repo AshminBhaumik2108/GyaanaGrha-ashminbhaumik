@@ -17,6 +17,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 export default function wsm() {
+  // useState Cases : for the State of the WSM
   const [coaching, setCoaching] = useState("");
   const [libraries, setLibraries] = useState("");
   const [rent, setRent] = useState("");
@@ -24,9 +25,9 @@ export default function wsm() {
   const [exam, setExam] = useState("");
   const [check, setCheck] = useState(false);
   const [val, setVal] = useState(98);
-
+  // useState Cases : Store the Favourites (from where the data is fetched)
   const [prevCarts, setPrevCarts] = useState([]);
-
+  // useEffect Cases : When the Data Changes it should be updated....
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchFavourites();
@@ -36,6 +37,26 @@ export default function wsm() {
     fetchData();
   }, [prevCarts]);
 
+  const onSubmit = () => {
+    if (
+      coaching !== "" &&
+      libraries !== "" &&
+      rent !== "" &&
+      area !== "" &&
+      exam !== ""
+    ) {
+      setCheck(true);
+      //   To Check for the Working Condition of the Values in the Console.....
+      //   console.log(
+      //     `Coaching: ${coaching}, Libraries: ${libraries}, Rent: ${rent}, Area: ${area}, Exam: ${exam}`
+      //   );
+    } else {
+      alert(
+        "Please enter all the fields for preference... (If not have any preference enter '0')"
+      );
+    }
+  };
+
   return (
     <div
       style={{
@@ -43,8 +64,11 @@ export default function wsm() {
         flexDirection: "column",
         width: "89vw",
         padding: "20px 20px",
+        height: "100vh",
+        overflow: "scroll",
       }}
     >
+      {/* Heading of the Weight Score Model : WSM */}
       <h2 className="text">
         Rate your Preference from 0 to 9 : Based on the Preference the WSM will
         provide you the best results :{" "}
@@ -67,6 +91,8 @@ export default function wsm() {
             justifyContent: "center",
           }}
         >
+          {/* Checks are been set for Data inconsistancies by ashminbhaumik */}
+          {/* Some for Numbers and some for Strings */}
           <TextField
             onChange={(e) => {
               const value = e.target.value;
@@ -81,6 +107,11 @@ export default function wsm() {
             placeholder="Enter Preference"
             variant="outlined"
             style={{ width: "100%" }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSubmit();
+              }
+            }}
           />
           <TextField
             onChange={(e) => {
@@ -96,6 +127,11 @@ export default function wsm() {
             placeholder="Enter Preference"
             variant="outlined"
             style={{ width: "100%" }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSubmit();
+              }
+            }}
           />
           <TextField
             onChange={(e) => {
@@ -111,6 +147,11 @@ export default function wsm() {
             placeholder="Enter Preference"
             multiline
             style={{ width: "100%" }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSubmit();
+              }
+            }}
           />
           <TextField
             onChange={(e) => {
@@ -126,7 +167,13 @@ export default function wsm() {
             placeholder="Enter Preference"
             multiline
             style={{ width: "100%" }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSubmit();
+              }
+            }}
           />
+          {/* Checks : For Strings... */}
           <TextField
             onChange={(e) => {
               const input = e.target.value;
@@ -138,8 +185,12 @@ export default function wsm() {
             id="outlined-textarea"
             label="Exam Name"
             placeholder="Enter Exam name in TEXT"
-            multiline
             style={{ width: "100%" }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSubmit();
+              }
+            }}
           />
 
           <div
@@ -152,24 +203,9 @@ export default function wsm() {
           >
             <div
               onClick={() => {
-                if (
-                  coaching !== "" &&
-                  libraries !== "" &&
-                  rent !== "" &&
-                  area !== "" &&
-                  exam !== ""
-                ) {
-                  setCheck(true);
-                  //   To Check for the Working Condition of the Values in the Console.....
-                  //   console.log(
-                  //     `Coaching: ${coaching}, Libraries: ${libraries}, Rent: ${rent}, Area: ${area}, Exam: ${exam}`
-                  //   );
-                } else {
-                  alert(
-                    "Please enter all the fields for preference... (If not have any preference enter 0)"
-                  );
-                }
+                onSubmit();
               }}
+              // Styling for the Calculate Button made by ashminbhaumik using <div/> tag....
               style={{
                 color: "blue",
                 width: "100px",
@@ -191,126 +227,145 @@ export default function wsm() {
       <h2 className="description">
         Cards with Values of WEIGHT SCORING MODEL Score OR WSM Score :{" "}
       </h2>
-      {check ? (
-        <div
-          className="card-area"
-          style={{ display: "flex", flexWrap: "wrap" }}
-        >
-          {check
-            ? prevCarts.map((chart, index) => (
-                <div key={index} style={{ padding: "10px" }}>
-                  <Card sx={{ maxWidth: 345, marginBottom: "20px" }}>
-                    <CardHeader
-                      avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                          {chart.statename?.[0] || "A"}
-                        </Avatar>
-                      }
-                      action={<IconButton aria-label="settings"></IconButton>}
-                      title={`${chart.officename || "Unknown Office"}`}
-                      subheader={chart.pincode}
-                    />
-                    <CardMedia
-                      component="img"
-                      height="194"
-                      image="https://static.vecteezy.com/system/resources/thumbnails/023/309/773/small_2x/ai-generative-exterior-of-modern-luxury-house-with-garden-and-beautiful-sky-photo.jpg"
-                      alt="Office image"
-                    />
-                    <CardContent>
-                      <Typography
-                        variant="body2"
-                        sx={{ color: "text.secondary" }}
-                      >
-                        <strong>Region Name:</strong> {chart.regionname}
-                        <br />
-                        <strong>Division Name:</strong> {chart.divisionname}
-                        <br />
-                        <strong>Office Name:</strong> {chart.officename}
-                        <br />
-                        <strong>Pincode:</strong> {chart.pincode}
-                        <br />
-                        <strong>Office Type:</strong> {chart.officetype}
-                        <br />
-                        <strong>District:</strong> {chart.district}
-                        <br />
-                        <strong>State Name:</strong> {chart.statename}
-                        <br />
-                        <strong>Housing Complex:</strong> Dream Exotica
-                        <br />
-                        <strong>WSM Score : </strong> {val - index * index}%
-                      </Typography>
-                    </CardContent>
-                    <CardActions disableSpacing>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          paddingLeft: "10px",
-                        }}
-                      >
-                        <div>
-                          <IconButton aria-label="add to favorites">
-                            <FavoriteIcon
-                              onClick={() => {
-                                alert("Item already added to Favourites....");
-                              }}
-                            />
-                          </IconButton>
-                          <IconButton aria-label="share">
-                            <ShareIcon
-                              onClick={() => {
-                                alert("Copy link : gyaanagrha-ashminbhaumik");
-                              }}
-                            />
-                          </IconButton>
-                        </div>
-                        <div>
-                          <img
-                            src={
-                              "https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
-                            }
-                            onClick={() => {
-                              deleteFavourites(chart._id);
-                            }}
-                            style={{
-                              width: "25px",
-                              height: "25px",
-                              marginLeft: "200px",
-                            }}
-                            alt="icon"
-                          />
-                        </div>
-                      </div>
-                    </CardActions>
-                  </Card>
-                </div>
-              ))
-            : null}
-        </div>
-      ) : (
-        <div>
-          <h1
-            className="description"
-            style={{
-              display: "flex",
-              padding: "20px 20px",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "red",
-            }}
+      {/* Styling for Cards made for the Scrolling of Cards without overflow */}
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          overflowY: "auto",
+          maxHeight: "89vh",
+          paddingLeft : "0px",
+          paddingRight: "10px",
+          marginTop: "10px",
+          justifyContent: "center",
+        }}
+      >
+        {/* Check : For the Data, to know the Button of Calculate has been Clicked... */}
+        {check ? (
+          <div
+            className="card-area"
+            style={{ display: "flex", flexWrap: "wrap" }}
           >
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            Please Enter the Preferences and Click on Calculate ..........
-            <br />
-            You will get all the Results of the Card saved in Your Favourites
-          </h1>
-        </div>
-      )}
+            {check
+              ? prevCarts.map((chart, index) => (
+                  <div key={index} style={{ padding: "10px" }}>
+                    <Card sx={{ maxWidth: 345, marginBottom: "20px" }}>
+                      <CardHeader
+                        avatar={
+                          <Avatar
+                            sx={{ bgcolor: red[500] }}
+                            aria-label="recipe"
+                          >
+                            {chart.statename?.[0] || "A"}
+                          </Avatar>
+                        }
+                        action={<IconButton aria-label="settings"></IconButton>}
+                        title={`${chart.officename || "Unknown Office"}`}
+                        subheader={chart.pincode}
+                      />
+                      <CardMedia
+                        component="img"
+                        height="194"
+                        image="https://static.vecteezy.com/system/resources/thumbnails/023/309/773/small_2x/ai-generative-exterior-of-modern-luxury-house-with-garden-and-beautiful-sky-photo.jpg"
+                        alt="Office image"
+                      />
+                      <CardContent>
+                        <Typography
+                          variant="body2"
+                          sx={{ color: "text.secondary" }}
+                        >
+                          <strong>Region Name:</strong> {chart.regionname}
+                          <br />
+                          <strong>Division Name:</strong> {chart.divisionname}
+                          <br />
+                          <strong>Office Name:</strong> {chart.officename}
+                          <br />
+                          <strong>Pincode:</strong> {chart.pincode}
+                          <br />
+                          <strong>Office Type:</strong> {chart.officetype}
+                          <br />
+                          <strong>District:</strong> {chart.district}
+                          <br />
+                          <strong>State Name:</strong> {chart.statename}
+                          <br />
+                          <strong>Housing Complex:</strong> Dream Exotica
+                          <br />
+                          <strong>WSM Score : </strong> {val - index * index}%
+                        </Typography>
+                      </CardContent>
+                      <CardActions disableSpacing>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            paddingLeft: "10px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-between",
+                            }}
+                          >
+                            <div>
+                              <img
+                                src={
+                                  "https://www.shutterstock.com/image-vector/book-now-icon-internet-button-600nw-265421198.jpg"
+                                }
+                                alt=""
+                                style={{ width: "50px", height: "50px" }}
+                                onClick={() => {
+                                  alert(
+                                    "🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳\n\nYou have Completed Booking for your Stay"
+                                  );
+                                }}
+                              ></img>
+                            </div>
+                            <div style={{ paddingLeft: "230px" }}>
+                              <IconButton aria-label="share">
+                                <ShareIcon
+                                  onClick={() => {
+                                    alert(
+                                      "Copy link : gyaanagrha-ashminbhaumik"
+                                    );
+                                  }}
+                                />
+                              </IconButton>
+                            </div>
+                          </div>
+                        </div>
+                      </CardActions>
+                    </Card>
+                  </div>
+                ))
+              : null}
+          </div>
+        ) : (
+          <div>
+            <h1
+              className="description"
+              style={{
+                display: "flex",
+                padding: "20px 20px",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "red",
+              }}
+            >
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              Please Enter the Preferences and Click on Calculate ..........
+              <br />
+              You will get all the Results of the Card saved in Your Favourites
+            </h1>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

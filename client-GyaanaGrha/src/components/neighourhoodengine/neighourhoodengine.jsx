@@ -23,6 +23,7 @@ import Box from "@mui/material/Box";
 import { pushPrompt } from "../../api/prompt/fetchPrompt.js";
 import { useNavigate } from "react-router-dom";
 import { pushCarts } from "../../api/cart/useCart.js";
+import { useEffect } from "react";
 
 export default function NeighourhoodEngine() {
   const validStates = [
@@ -81,13 +82,14 @@ export default function NeighourhoodEngine() {
   // Valid if the stateName is in the validStates array or NOT by ashminbhaumik.....
   // SOME : Works like is any of the stateName is in the validStates array
   const isValidState = validStates.some(
-    (s) => s.toLowerCase() === stateName.toLowerCase() // No Case Sensitive...
+    (s) => s.toLowerCase() === stateName.toLowerCase() // No Case Sensitive Problem to appear...
   );
 
   const navigate = useNavigate(); // for navigation....
 
-  // Function to search with form data
+  // Function to search with form data : When we click on Data Button.....
   const onSearch = async () => {
+    console.log(stateName, pincode, district);
     const payload = {
       statename: stateName,
       pincode: pincode,
@@ -102,6 +104,9 @@ export default function NeighourhoodEngine() {
       const data = await fetchNeighborhoodData(payload);
       setResults(data);
       setLoading(false); // for the loader...
+      if (data.length === 0) {
+        alert("No Data Found");
+      }
       console.log(data);
       // setResults(data);
     } catch (err) {
@@ -112,6 +117,34 @@ export default function NeighourhoodEngine() {
     }
   };
 
+  // Crated for the search button : Enter and Search should Work Properly.....
+  const searchProps = () => {
+    if (pincode !== "") {
+      if (pincode.length !== 6) {
+        alert("Please enter a valid PINCODE");
+        setSearch(true);
+        return;
+      }
+    }
+    if (search) {
+      setSearch(false);
+      if (stateName !== "" || pincode !== "" || district !== "") {
+        if (!isValidState) {
+          alert(
+            "Please enter a valid State name. Check for Spelling Errors..."
+          );
+          setSearch(true);
+        } else {
+          onSearch();
+          pushPrompt(stateName);
+        }
+      } else {
+        alert("Please enter at least one field");
+      }
+    }
+  };
+
+  // Function to search with form data : The Loading Bar....
   ({ theme }) => ({
     marginLeft: "auto",
     transition: theme.transitions.create("transform", {
@@ -142,16 +175,14 @@ export default function NeighourhoodEngine() {
       }}
     >
       <div className="neighourhood-engine">
-        {/* <div className="nav">
-        <p className="nav-title">Neighborhood Fit Engine</p>
-        <img alt="" />
-      </div> */}
         <div
           style={{
             display: "flex",
-            alignItems: "center",
+            flexDirection: "column",
             padding: "0px 10px",
             justifyContent: "space-between",
+            height: "6vh",
+            overflow: "hidden",
           }}
         >
           <h2>
@@ -167,6 +198,8 @@ export default function NeighourhoodEngine() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            paddingBottom: "0px",
+            padding: "0px 20px",
           }}
         >
           <div
@@ -180,7 +213,12 @@ export default function NeighourhoodEngine() {
             }}
           >
             <TextField
-              onChange={(e) => setStatename(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value;
+                if (/^[a-zA-Z\s]*$/.test(value)) {
+                  setStatename(value);
+                }
+              }}
               value={stateName}
               className="input-field"
               id="outlined-basic"
@@ -188,12 +226,17 @@ export default function NeighourhoodEngine() {
               placeholder="Enter State"
               variant="outlined"
               style={{ width: "100%" }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  searchProps();
+                }
+              }}
             />
             <TextField
               onChange={(e) => {
                 const value = e.target.value;
-                if (/^\d*$/.test(value)) {
-                  // only allows digits (0–9)
+                if (/^\d*$/.test(value) && value.length <= 6) {
+                  // only allows digits (0–9) && length <= 6 by the TextBox....
                   setPincode(value);
                 }
               }}
@@ -203,8 +246,12 @@ export default function NeighourhoodEngine() {
               label="Pincode"
               placeholder="Enter PINCODE"
               variant="outlined"
-              inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
               style={{ width: "100%" }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  searchProps();
+                }
+              }}
             />
 
             <TextField
@@ -214,8 +261,12 @@ export default function NeighourhoodEngine() {
               id="outlined-textarea"
               label="District Name"
               placeholder="Enter District"
-              multiline
               style={{ width: "100%" }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  searchProps();
+                }
+              }}
             />
             <TextField
               onChange={(e) => setExam(e.target.value)}
@@ -224,8 +275,12 @@ export default function NeighourhoodEngine() {
               id="outlined-textarea"
               label="Exam Preparation"
               placeholder="Enter Examination Name"
-              multiline
               style={{ width: "100%" }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  searchProps();
+                }
+              }}
             />
             <div
               className="button-search"
@@ -237,29 +292,7 @@ export default function NeighourhoodEngine() {
             >
               <div
                 onClick={() => {
-                  if (pincode !== "") {
-                    if (pincode.length !== 6) {
-                      alert("Please enter a valid PINCODE");
-                      setSearch(true);
-                      return;
-                    }
-                  }
-                  if (search) {
-                    setSearch(false);
-                    if (stateName !== "" || pincode !== "" || district !== "") {
-                      if (!isValidState) {
-                        alert(
-                          "Please enter a valid State name. Check for Spelling Errors..."
-                        );
-                        setSearch(true);
-                      } else {
-                        onSearch();
-                        pushPrompt(stateName);
-                      }
-                    } else {
-                      alert("Please enter at least one field");
-                    }
-                  }
+                  searchProps();
                 }}
                 style={{
                   color: "blue",
@@ -272,6 +305,11 @@ export default function NeighourhoodEngine() {
                   alignItems: "center",
                   justifyContent: "center",
                   backgroundColor: "#e0f0ff",
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    searchProps();
+                  }
                 }}
               >
                 SEARCH
@@ -305,7 +343,7 @@ export default function NeighourhoodEngine() {
                           {/* <MoreVertIcon /> */}
                         </IconButton>
                       }
-                      title={"Chennai Circle"}
+                      title={"Rajasthan Circle"}
                       subheader="September 14, 2016"
                     />
                     <CardMedia
@@ -442,18 +480,9 @@ export default function NeighourhoodEngine() {
                             {/* <ShareIcon /> */}
                           </IconButton>
                         </div>
-                        <div style={{ display: "flex", paddingLeft: "70px" }}>
-                          {/* <img
-                            src={
-                              "https://static.thenounproject.com/png/47398-200.png"
-                            }
-                            style={{
-                              width: "40px",
-                              height: "40px",
-                              marginLeft: "190px",
-                            }}
-                          /> */}
-                        </div>
+                        <div
+                          style={{ display: "flex", paddingLeft: "70px" }}
+                        ></div>
                       </div>
                     </CardActions>
                   </Card>
@@ -711,7 +740,17 @@ export default function NeighourhoodEngine() {
             </>
           </>
         ) : (
-          <div style={{ display: "flex", flex: 1, overflowY: "auto" }}>
+          <div
+            style={{
+              display: "flex",
+              flex: 1,
+              overflowY: "auto",
+              maxHeight: "78vh",
+              width: "92vw",
+              padding: "10px 50px",
+              marginTop: "20px",
+            }}
+          >
             <div className="card">
               {loading ? (
                 <div

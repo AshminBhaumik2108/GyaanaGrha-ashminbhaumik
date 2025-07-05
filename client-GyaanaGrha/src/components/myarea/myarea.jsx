@@ -34,7 +34,7 @@ export default function myarea() {
   }, [prevCarts]);
 
   return (
-    <div className="my-area" style={{ padding: "20px 20px", width:"89vw" }}>
+    <div className="my-area" style={{ padding: "20px 20px", width: "89vw" }}>
       <div
         style={{
           display: "flex",
@@ -43,10 +43,24 @@ export default function myarea() {
           justifyContent: "space-between",
         }}
       >
-        <h2>MY AREAS <br/><p style={{paddingTop:"10px"}}>Section to record accommodation details, including rental information ( Mainly whatever the Customers Like... )</p> </h2>
+        <h2>
+          MY AREAS <br />
+          <p style={{ paddingTop: "10px" }}>
+            Section to record accommodation details, including rental
+            information ( Mainly whatever the Customers Like... )
+          </p>{" "}
+        </h2>
         {/* <h2>My Area ( Space to save details for Rent ) : </h2> */}
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          overflowY: "auto",
+          maxHeight: "90vh",
+          flexWrap: "wrap",
+        }}
+      >
         {prevCarts && prevCarts.length > 0 ? (
           prevCarts.map((chart, index) => (
             <div key={index} style={{ padding: "10px" }}>
@@ -88,7 +102,7 @@ export default function myarea() {
                     <br />
                     <strong>Rating:</strong> ⭐️⭐️⭐️⭐️⭐️
                     <br />
-                    <strong>WSM Score (Higher is Better) :</strong> 89%
+                    <strong>Average WSM Score (Higher is Better) :</strong> 89%
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>

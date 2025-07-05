@@ -36,7 +36,7 @@ export default function mgptAI() {
           boxSizing: "border-box",
         }}
       >
-        <div className="nav">
+        <div className="nav" style={{ justifyContent: "space-between", paddingRight: "30px" }}>
           <h3
             className="nav-titles"
             style={{
