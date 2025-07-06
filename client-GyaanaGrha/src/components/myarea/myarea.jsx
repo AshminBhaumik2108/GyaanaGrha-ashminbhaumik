@@ -139,7 +139,7 @@ export default function myarea() {
                       <IconButton aria-label="share">
                         <ShareIcon
                           onClick={() => {
-                            alert("Copy link : gyaanagrha-ashminbhaumik");
+                            alert(`Copy link : gyaanagrha-${chart._id}`);
                           }}
                         />
                       </IconButton>

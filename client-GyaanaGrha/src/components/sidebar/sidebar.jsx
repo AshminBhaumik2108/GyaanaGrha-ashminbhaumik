@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 // Importing the CSS file of the Sidebar Component...
 import "./sidebar.css";
 import { assets } from "../../assets/assets.js";
-import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getAllPrompts } from "../../api/prompt/prompt.js";
@@ -12,6 +11,7 @@ import NeighourhoodEngine from "../neighourhoodengine/neighourhoodengine.jsx";
 
 const sidebar = ({ data }) => {
   // Context :
+  // Context API : to access the functions and variables from the context...
   const {
     onSent,
     prevPrompts,
@@ -24,9 +24,6 @@ const sidebar = ({ data }) => {
   // Fo the Navigation of the application we re using it....
   const navigate = useNavigate();
   // State variable for the sidebar component...
-  // Context API : to access the functions and variables from the context...
-  const queryClient = useQueryClient();
-
   // Fetch prompts on component mount : i.e. when the component mounts it gets updated by the Changed data...
   useEffect(() => {
     const fetchData = async () => {
@@ -138,7 +135,10 @@ const sidebar = ({ data }) => {
               className="recent-entry"
               // onClick={() => window.open("https://docs.google.com/document/d/1Z7lHovSDx-CUgLqO6Uvv_5NLutn8gDzedkjWCStKYUM/edit?usp=sharing")}
               onClick={() => {
-                alert("Documentation is under construction...");
+                window.open(
+                  "https://drive.google.com/drive/folders/1h1N1mR8DmhoHu53wR5e3UVAJWBlGpDik?usp=sharing", '_blank'
+                  // "_blank" : helps me not to navigate the Current Page...
+                )
               }}
             >
               <img
