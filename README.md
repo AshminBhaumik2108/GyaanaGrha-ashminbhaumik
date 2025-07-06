@@ -18,7 +18,7 @@ Gyaana-grha is a Web platform that intelligently matches students and early-care
 
 ## 🎬 YouTube
 
-**YouTube Link :** [Comming Soon !!!!!](https://gyaanagrha-ashminbhaumik.onrender.com)
+**YouTube Link :** [https://youtu.be/eKXGhH4lIZI?si=PsdhQOdTGJUFogOy](https://youtu.be/eKXGhH4lIZI?si=PsdhQOdTGJUFogOy)
 
 ---
 
@@ -56,8 +56,8 @@ VITE_GEMINI_API_KEY = <your-gemini-api-key>    # Google Gemini AI API key
 ## 🗄️ Backend: `.env` Format (Located : `./server-GyaanaGrha/.env`)
 
 ```env
-BASE_API_URL = http://localhost:xxxx/api.         # Base route for server-side API
-API_KEY = <your-secret-api-key>                   # Optional internal API key
+BASE_API_URL = https://api.data.gov.in/resource/  # Base Route URL
+API_KEY = <your-secret-api-key>                   # API key : Govt Dataset KEY
 MONGODB_URI = <your-mongodb-connection-uri>       # MongoDB Atlas or local URI
 SERVER_DEVELOPMENT_URL = http://localhost:xxxx    # Dev URL used for CORS/configs
 PORT = xxxx                                       # Port for backend server
@@ -68,8 +68,6 @@ APPLICATION = http://localhost:xxxx               # App name or identifier
 ---
 
 ## 📦 How to Clone and Run Locally
-
-### 🔹 Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/AshminBhaumik2108/GyaanaGrha-ashminbhaumik.git
