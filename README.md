@@ -15,23 +15,24 @@ Gyaana-grha is a Web platform that intelligently matches students and early-care
 > 🧑‍💻 Since the hosting is on a **free Render plan**, cold starts may cause a slight delay.
 
 ---
-## 🎬 YouTube
-**YouTube Link :** [Comming Soon !!!!!](https://gyaanagrha-ashminbhaumik.onrender.com)
 
+## 🎬 YouTube
+
+**YouTube Link :** [Comming Soon !!!!!](https://gyaanagrha-ashminbhaumik.onrender.com)
 
 ---
 
 ## 🛠️ Tech Stack
 
-| **Category**     | **Tools / Libraries** |
-|--------------|-------------------|
-| **Frontend**     | React 19, Vite, React Router DOM, MUI |
-| **Backend**      | Node.js, Express.js, MongoDB Atlas, CORS |
-| **APIs**         | Google Maps, Mapbox GL JS, @react-google-maps/api |
-| **AI Layer**     | Google Generative AI SDK (Gemini) |
-| **Styling**      | Emotion, Vanilla CSS
-| **Deployment**   | Vercel (Client), Render (Server) |
-| **Utilities**    | Axios, Dotenv
+| **Category**   | **Tools / Libraries**                             |
+| -------------- | ------------------------------------------------- |
+| **Frontend**   | React 19, Vite, React Router DOM, MUI             |
+| **Backend**    | Node.js, Express.js, MongoDB Atlas, CORS          |
+| **APIs**       | Google Maps, Mapbox GL JS, @react-google-maps/api |
+| **AI Layer**   | Google Generative AI SDK (Gemini)                 |
+| **Styling**    | Emotion, Vanilla CSS                              |
+| **Deployment** | Vercel (Client), Render (Server)                  |
+| **Utilities**  | Axios, Dotenv                                     |
 
 ---
 
@@ -75,3 +76,4 @@ git clone https://github.com/AshminBhaumik2108/GyaanaGrha-ashminbhaumik.git
 cd GyaanaGrha-ashminbhaumik
 
 
+```
