@@ -12,8 +12,8 @@ Gyaana-grha is a Web platform that intelligently matches students and early-care
 
 > ⚠️ **IMPORTANT NOTE:**  
 > ⏳ Please **wait ~40 seconds** for the **SERVER to start** when opening the website **(Please Refresh after ~40 seconds)**.  
-> 🧑‍💻 Since the hosting is on a **free Render plan**, cold starts may cause a slight delay.
-
+> 🧑‍💻 Since the hosting is on a **free Render plan**, cold starts may cause a slight delay.   
+> 🔴 Keep **Browser Zoom 80%** for better Experience
 ---
 
 ## 🎬 YouTube
