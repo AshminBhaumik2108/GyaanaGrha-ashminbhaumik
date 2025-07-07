@@ -48,7 +48,7 @@ export default function mgptAI() {
           >
             MGPT AI{" "}
           </h3>
-          <img style={{ width: "5vw" }} src={assets.gyaanagrha} alt="" />
+          <img style={{ width: "5vw" }} src={assets.gyaanagrha} alt = "imgtest" />
         </div>
         <div className="main-container">
           {/* If showResult = true, show the result else show the cards */}
@@ -73,7 +73,7 @@ export default function mgptAI() {
                       src={
                         "https://cdn-icons-png.freepik.com/512/13078/13078445.png"
                       }
-                      alt=""
+                      alt = "imgtest"
                     />
                   </p>
                 </div>
@@ -86,7 +86,7 @@ export default function mgptAI() {
                       src={
                         "https://cdn-icons-png.freepik.com/512/18577/18577280.png"
                       }
-                      alt=""
+                      alt = "imgtest"
                     />
                   </p>
                 </div>
@@ -99,7 +99,7 @@ export default function mgptAI() {
                       src={
                         "https://cdn-icons-png.freepik.com/512/11782/11782442.png"
                       }
-                      alt=""
+                      alt = "imgtest"
                     />
                   </p>
                 </div>
@@ -112,7 +112,7 @@ export default function mgptAI() {
                       src={
                         "https://cdn-icons-png.freepik.com/512/7831/7831132.png"
                       }
-                      alt=""
+                      alt = "imgtest"
                     />
                   </p>
                 </div>
@@ -126,12 +126,12 @@ export default function mgptAI() {
                   src={
                     "https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"
                   }
-                  alt=""
+                  alt = "imgtest"
                 />
                 <p>{recentPrompt}</p>
               </div>
               <div className="result-data">
-                <img src={assets.gemini} alt="" />
+                <img src={assets.gemini} alt = "imgtest" />
                 {/* Till the Data is not loaded, show the loading animation */}
                 {loading ? (
                   <div className="loader">
@@ -178,8 +178,8 @@ export default function mgptAI() {
                 }}
               />
               <div>
-                <img src={assets.gallery} alt="" />
-                <img src={assets.mic} alt="" />
+                <img src={assets.gallery} alt = "imgtest" />
+                <img src={assets.mic} alt = "imgtest" />
                 {/* Correct usage: calling the function for the Status of the Code... */}
                 <img
                   onClick={() => {
@@ -191,7 +191,7 @@ export default function mgptAI() {
                     }
                   }}
                   src={assets.send}
-                  alt=""
+                  alt = "imgtest"
                 />
               </div>
             </div>

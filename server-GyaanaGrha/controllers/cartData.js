@@ -16,7 +16,7 @@ const createData = async (req, res) => {
 const getData = async (req, res) => {
   try {
     const allData = await PincodeData.find();
-    res.status(200).json({ success: true, data: allData });
+    res.status(200).json({ success: true, data: allData }); // Send the data...
   } catch (error) {
     console.error("Error fetching data:", error);
     res.status(500).json({ success: false, message: "Server Error" });
@@ -26,6 +26,7 @@ const getData = async (req, res) => {
 // Delete data by _id
 const deleteData = async (req, res) => {
   try {
+    // Find by the _id from Params and delete it....
     const deleted = await PincodeData.findByIdAndDelete(req.params.id);
     if (!deleted) {
       return res.status(404).json({ success: false, message: "Data not found" });

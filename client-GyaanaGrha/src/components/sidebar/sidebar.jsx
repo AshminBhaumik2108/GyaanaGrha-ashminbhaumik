@@ -44,14 +44,14 @@ const sidebar = ({ data }) => {
           <img
             onClick={() => setExtended(!extended)}
             src={"https://www.svgrepo.com/show/94793/menu-button-of-three-horizontal-lines.svg"}
-            alt=""
+            alt = "imgtest"
             className="menu"
           />
           {extended ? (
             <img
               onClick={() => navigate("/")} // dashboard Page...
               src={assets.gyaanagrha}
-              alt=""
+              alt = "imgtest"
               className="logo"
               style={{ width: "11vh", cursor: "pointer" }}
             />
@@ -63,7 +63,7 @@ const sidebar = ({ data }) => {
           className="new-chat"
           onClick={() => navigate("/mgpt-ashminbhaumik")}
         >
-          <img src={assets.plus} alt="" className="plus" />
+          <img src={assets.plus} alt = "imgtest" className="plus" />
           {/* If the sidebar is extended, show the text or return null */}
           {/* It will keep only the PNG and the text will be Omited... */}
           {extended ? <span>Chat with MGPT AI</span> : null}
@@ -86,14 +86,14 @@ const sidebar = ({ data }) => {
                 src={
                   "https://media.istockphoto.com/id/1432954505/vector/vector-doodle-line-drawing-of-a-house-roof-with-a-heart-and-the-lettering-home-the-concept.jpg?s=612x612&w=0&k=20&c=PbEqCetrX26uHNbYksFHiYeFelWN1QxdAkpxvs5dZ-g="
                 }
-                alt=""
+                alt = "imgtest"
               />
               <p>Neighborhood Fit Area</p>
             </div>
             <div className="recent-entry" onClick={() => navigate("/my-area")}>
               <img
                 src={"https://cdn-icons-png.freepik.com/512/7835/7835563.png"}
-                alt=""
+                alt = "imgtest"
               />
               <p>My Areas</p>
             </div>
@@ -105,7 +105,7 @@ const sidebar = ({ data }) => {
                 src={
                   "https://similarpng.com/_next/image?url=https%3A%2F%2Fimage.similarpng.com%2Ffile%2Fsimilarpng%2Fvery-thumbnail%2F2020%2F08%2FEmoji-social-media-Reaction-heart-icon-vector-PNG.png&w=3840&q=75"
                 }
-                alt=""
+                alt = "imgtest"
               />
               <p>My Favourites</p>
             </div>
@@ -117,7 +117,7 @@ const sidebar = ({ data }) => {
                 src={
                   "https://img.favpng.com/3/23/13/map-icon-png-vector-format-png-favpng-SwT3fkihcFphPUsrfz8zy4RnC.jpg"
                 }
-                alt=""
+                alt = "imgtest"
               />
               <p>Interactive Map Layer</p>
             </div>
@@ -127,7 +127,7 @@ const sidebar = ({ data }) => {
             >
               <img
                 src={"https://cdn-icons-png.flaticon.com/512/8618/8618881.png"}
-                alt=""
+                alt = "imgtest"
               />
               <p>Weight Score Model</p>
             </div>
@@ -143,7 +143,7 @@ const sidebar = ({ data }) => {
             >
               <img
                 src={"https://cdn-icons-png.freepik.com/512/7519/7519062.png"}
-                alt=""
+                alt = "imgtest"
               />
               <p>Docs. of Gyaanagrha</p>
             </div>
@@ -169,7 +169,7 @@ const sidebar = ({ data }) => {
                           src={
                             "https://cdn-icons-png.freepik.com/512/8395/8395475.png"
                           }
-                          alt=""
+                          alt = "imgtest"
                         />
                         <p>{prompt.input.slice(0, 18)}</p>
                       </div>
@@ -177,7 +177,7 @@ const sidebar = ({ data }) => {
                         src={
                           "https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
                         }
-                        alt=""
+                        alt = "imgtest"
                         className="delete-icon"
                         onClick={async (event) => {
                           // Important Chack: For those Cliks that have a Parrent onClick...
@@ -215,7 +215,7 @@ const sidebar = ({ data }) => {
             src={
               "https://st.depositphotos.com/1432405/51923/v/450/depositphotos_519232122-stock-illustration-help-service-center-icon-color.jpg"
             }
-            alt=""
+            alt = "imgtest"
           />
           {/* for bottom: Chat */}
           {extended ? <p>Help</p> : null}
@@ -232,7 +232,7 @@ const sidebar = ({ data }) => {
             src={
               "https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png"
             }
-            alt=""
+            alt = "imgtest"
           />
           {extended ? <p>Settings</p> : null}
         </div>

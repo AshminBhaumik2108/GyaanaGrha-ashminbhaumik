@@ -1,6 +1,6 @@
 const FavouriteData = require("../schemas/favourites/favourite");
 
-// Create new data
+// Create a new data for favourite....
 const createData = async (req, res) => {
   try {
     const newEntry = new FavouriteData(req.body);
@@ -12,7 +12,7 @@ const createData = async (req, res) => {
   }
 };
 
-// Get all saved data
+// Get all Saved data from favourite...
 const getData = async (req, res) => {
   try {
     const allData = await FavouriteData.find();
@@ -23,7 +23,7 @@ const getData = async (req, res) => {
   }
 };
 
-// Delete data by _id
+// Delete data by _id for the favourite...
 const deleteData = async (req, res) => {
   try {
     const deleted = await FavouriteData.findByIdAndDelete(req.params.id);

@@ -35,7 +35,7 @@ export default function wsm() {
     };
 
     fetchData();
-  }, [prevCarts]);
+  }, []);
 
   const onSubmit = () => {
     if (

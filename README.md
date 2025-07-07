@@ -72,6 +72,4 @@ APPLICATION = http://localhost:xxxx               # App name or identifier
 ```bash
 git clone https://github.com/AshminBhaumik2108/GyaanaGrha-ashminbhaumik.git
 cd GyaanaGrha-ashminbhaumik
-
-
 ```

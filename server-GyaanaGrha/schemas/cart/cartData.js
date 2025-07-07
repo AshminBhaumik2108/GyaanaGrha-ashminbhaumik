@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Schema for the CART Data mailnly of Type String and required....
 const pincodeDataSchema = new mongoose.Schema(
   {
     circlename: { type: String, required: true },
@@ -20,3 +21,21 @@ const pincodeDataSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("CartAreas", pincodeDataSchema);
+
+// Example JSON :
+
+// {
+//   "circlename": "Maharashtra Circle",
+//   "regionname": "Mumbai Region",
+//   "divisionname": "Mumbai Central Division",
+//   "officename": "Dadar Post Office",
+//   "pincode": "400014",
+//   "officetype": "Sub Office",
+//   "delivery": "Yes",
+//   "district": "Mumbai",
+//   "statename": "Maharashtra",
+//   "latitude": "19.0176",
+//   "longitude": "72.8562",
+//   "createdAt": "2025-06-28T10:45:00.000Z",
+//   "updatedAt": "2025-06-28T10:45:00.000Z"
+// }
