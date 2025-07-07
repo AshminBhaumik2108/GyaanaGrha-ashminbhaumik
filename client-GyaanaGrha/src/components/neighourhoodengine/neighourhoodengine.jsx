@@ -186,10 +186,10 @@ export default function NeighourhoodEngine() {
           }}
         >
           <h2>
-            NEIGHOURHOOD FIT ENGINE <br />
+            NEIGHOURHOOD FIT AREA <br />
             <p style={{ paddingTop: "9px" }}>
-              Search for your Specific Areas (By Statename, Pincode, District OR
-              By Anyone of them OTHER than Exam Preferences)
+              Search for your Specific Areas ( By Statename, Pincode, District OR
+              By Anyone of them OTHER than Exam Preferences )
             </p>
           </h2>
         </div>

@@ -15,7 +15,7 @@ const mgptAIRoutes = require("./routes/mgptAIRoute.js")
 // CORS Middleware - CORS (Cross-Origin Resource Sharing)
 app.use(
   cors({
-    origin: [process.env.APPLICATION, "http://localhost:5173"], // NOTE : I have to change the Path...
+    origin: [process.env.APPLICATION, "http://localhost:5173"], // NOTE : I have added LocalHost to Check my Server ffrom the Localhost frontend...
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
     credentials: true,

@@ -71,7 +71,7 @@ export default function wsm() {
       {/* Heading of the Weight Score Model : WSM */}
       <h2 className="text">
         Rate your Preference from 0 to 9 : Based on the Preference the WSM will
-        provide you the best results :{" "}
+        provide you the best results (80% and Above is Best):{" "}
       </h2>
       <div
         className="search-area"
@@ -290,7 +290,7 @@ export default function wsm() {
                           <br />
                           <strong>Housing Complex:</strong> Dream Exotica
                           <br />
-                          <strong>WSM Score : </strong> {val - index * index}%
+                          <strong>WSM Score : </strong> {val - (index * index) + 1}%
                         </Typography>
                       </CardContent>
                       <CardActions disableSpacing>

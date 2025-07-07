@@ -18,7 +18,7 @@ Gyaana-grha is a Web platform that intelligently matches students and early-care
 
 ## 🎬 YouTube
 
-**YouTube Link :** [https://youtu.be/eKXGhH4lIZI?si=PsdhQOdTGJUFogOy](https://youtu.be/eKXGhH4lIZI?si=PsdhQOdTGJUFogOy)
+**YouTube Demo Link :** [https://youtu.be/eKXGhH4lIZI?si=PsdhQOdTGJUFogOy](https://youtu.be/eKXGhH4lIZI?si=PsdhQOdTGJUFogOy)
 
 ---
 
