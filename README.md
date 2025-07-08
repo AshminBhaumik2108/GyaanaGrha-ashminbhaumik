@@ -75,3 +75,29 @@ APPLICATION = http://localhost:xxxx               # App name or identifier
 git clone https://github.com/AshminBhaumik2108/GyaanaGrha-ashminbhaumik.git
 cd GyaanaGrha-ashminbhaumik
 ```
+
+# ⚠️ API Behavior Notice – Gyaana-grha Platform
+
+## 📌 Context
+
+**GyaanaGrha** uses **Official Government of India APIs** to fetch **location and pincode-based data**, such as:
+
+**LINK :** [All India Pincode Directory – data.gov.in](https://www.data.gov.in/resource/all-india-pincode-directory-till-last-month).   
+
+This API serves as a **foundational dataset for powering features** such as **Neighborhood Fit Area**, **Search by Pincode**, and **Regional Filtering** in our platform.
+
+---
+
+## 🛑 Known Issue with API Responses
+
+### ❗Problem
+
+There are instances where the **government API** returns an **empty dataset** (`records: []`) from their end, even when **valid state, district, or pincode values are provided**.
+
+### 📦 Example of Response:
+
+```json
+{
+  "records": []
+}
+```

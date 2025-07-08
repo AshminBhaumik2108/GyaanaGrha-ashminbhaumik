@@ -10,6 +10,7 @@ const fetchNeighborhoodData = async (filters) => {
     );
     // If there is a response data return the response Data or the Empty Value...
     // response.data?.data : It is in the form of array... and the Value is Passed Acordingly...
+    console.log(response.data?.data);
     return response.data?.data || [];
   } catch (error) {
     console.error("Error fetching neighborhood data:", error);

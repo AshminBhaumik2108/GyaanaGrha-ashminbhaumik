@@ -106,6 +106,7 @@ export default function NeighourhoodEngine() {
       setLoading(false); // for the loader...
       if (data.length === 0) {
         alert("No Data Found");
+        setStaticData(true); // for the static data : If the data is Empty...
       }
       console.log(data);
       // setResults(data);

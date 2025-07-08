@@ -1,17 +1,20 @@
-// ✅ Mock @google/genai FIRST before other imports
+// Mocks : ALL Imports are Mock funtions :
+
+// Mock @google/genai FIRST before other imports... (Since API fetches have problems without mock...)
+// Mocking the GoogleGenAI module for the better Experience.... (for testing purposes...)
 jest.mock("@google/genai", () => ({
   GoogleGenAI: jest.fn().mockImplementation(() => ({})),
 }));
 
-// ✅ Mock API fetches to prevent network errors in Sidebar
+// Mock API fetches to prevent network errors in Sidebar.....
 jest.mock("../api/prompt/fetchPrompt", () => ({
-  fetchPrompts: jest.fn().mockResolvedValue([
-    { input: "Bengaluru" },
-    { input: "Mumbai" },
-  ]),
+  // Mock the fetchPrompts function with a resolved value.....
+  fetchPrompts: jest
+    .fn()
+    .mockResolvedValue([{ input: "Bengaluru" }, { input: "Mumbai" }]),
 }));
 
-// ✅ Mock asset imports used in Sidebar
+// Mock asset imports used in Sidebar....
 jest.mock("../assets/assets.js", () => ({
   assets: {
     gyaanagrha: "gyaanagrha-logo.png",
@@ -19,14 +22,14 @@ jest.mock("../assets/assets.js", () => ({
   },
 }));
 
-// ✅ Test libraries and app modules
-import React from "react";
+// Test libraries and app modules from the imports...
 import { render, screen, fireEvent } from "@testing-library/react";
 import Sidebar from "../components/sidebar/sidebar.jsx";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Context } from "../context/context.jsx";
 
 describe("Sidebar Component", () => {
+  // Mock context value......
   const mockContextValue = {
     onSent: jest.fn(),
     prevPrompts: [{ input: "Bengaluru" }, { input: "Mumbai" }],
@@ -37,6 +40,7 @@ describe("Sidebar Component", () => {
     setExtended: jest.fn(),
   };
 
+  // HelperFunction to render the sidebar......
   const renderSidebar = () =>
     render(
       <Context.Provider value={mockContextValue}>
@@ -46,16 +50,17 @@ describe("Sidebar Component", () => {
       </Context.Provider>
     );
 
+  // Testing the Sidebar Component......
   test("renders both logos (gyaanagrha and plus icon)", () => {
     renderSidebar();
 
-    // Grab all images by role
+    // Grab all images by role.....
     const images = screen.getAllByRole("img", { hidden: true });
-
-    // Expect 2 logos
+    // Expecting 2 logos from the assets...
     expect(images.length).toBeGreaterThanOrEqual(2);
   });
 
+  // Testing the Sidebar Component (Maily the one which are Static)......
   test("renders all static sidebar menu items", () => {
     renderSidebar();
 
@@ -68,6 +73,7 @@ describe("Sidebar Component", () => {
       "Weight Score Model",
     ];
 
+    // Expected Output... (for-loop for chack...)
     for (const text of menuItems) {
       expect(screen.getByText(text)).toBeInTheDocument();
     }

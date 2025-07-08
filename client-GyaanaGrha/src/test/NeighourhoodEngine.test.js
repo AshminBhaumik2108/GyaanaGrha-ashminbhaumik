@@ -3,8 +3,9 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import NeighourhoodEngine from "../components/neighourhoodengine/neighourhoodengine.jsx";
 import { BrowserRouter as Router } from "react-router-dom";
 
-// Mock API Calls
+// Mock API Calls...
 jest.mock("../api/neighourEngine/neighourhoodEngine.js", () => ({
+  // Mock the fetchNeighborhoodData function with a resolved value.....
   fetchNeighborhoodData: jest.fn().mockResolvedValue([
     {
       circlename: "Test Circle",
@@ -22,12 +23,14 @@ jest.mock("../api/neighourEngine/neighourhoodEngine.js", () => ({
   ]),
 }));
 
+// Mock functions for API Calls(fetchPrompts)...
 jest.mock("../api/prompt/fetchPrompt.js", () => ({
-  pushPrompt: jest.fn(),
+  pushPrompt: jest.fn(), // Push new prompt fn()..
 }));
 
+// Mock functions for API Calls for useCarts (My Areas)...
 jest.mock("../api/cart/useCart.js", () => ({
-  pushCarts: jest.fn(),
+  pushCarts: jest.fn(), // Push new Carts fn()..
 }));
 
 describe("NeighourhoodEngine Component", () => {
@@ -37,6 +40,7 @@ describe("NeighourhoodEngine Component", () => {
         <NeighourhoodEngine />
       </Router>
     );
+    // Expected Output...
     expect(screen.getByLabelText("State Name")).toBeInTheDocument();
     expect(screen.getByLabelText("Pincode")).toBeInTheDocument();
     expect(screen.getByLabelText("District Name")).toBeInTheDocument();
@@ -44,6 +48,7 @@ describe("NeighourhoodEngine Component", () => {
     expect(screen.getByText("SEARCH")).toBeInTheDocument();
   });
 
+  // Pincode Validation... (Works in production...)
   test("shows alert for invalid pincode", () => {
     window.alert = jest.fn();
     render(
@@ -56,16 +61,19 @@ describe("NeighourhoodEngine Component", () => {
       target: { value: "123" },
     });
     fireEvent.click(screen.getByText("SEARCH"));
-    expect(window.alert).toHaveBeenCalledWith("Please enter at least one field");
+    expect(window.alert).toHaveBeenCalledWith(
+      "Please enter at least one field"
+    );
   });
 
+  // fetch Neighborhood Data...
   test("fetches and displays neighborhood data on valid search", async () => {
     render(
       <Router>
         <NeighourhoodEngine />
       </Router>
     );
-
+    // Expected Inputs...
     fireEvent.change(screen.getByLabelText("State Name"), {
       target: { value: "Karnataka" },
     });
@@ -74,14 +82,18 @@ describe("NeighourhoodEngine Component", () => {
     });
     fireEvent.click(screen.getByText("SEARCH"));
 
+    // Expected Output...
     await waitFor(() => {
       expect(screen.getByText("Test Office")).toBeInTheDocument();
     });
   });
 
+  // No Data Found...
   test("displays alert if no data is found", async () => {
     window.alert = jest.fn();
-    const { fetchNeighborhoodData } = require("../api/neighourEngine/neighourhoodEngine.js");
+    const {
+      fetchNeighborhoodData,
+    } = require("../api/neighourEngine/neighourhoodEngine.js");
     fetchNeighborhoodData.mockResolvedValueOnce([]);
 
     render(
@@ -90,6 +102,7 @@ describe("NeighourhoodEngine Component", () => {
       </Router>
     );
 
+    // Expected Inputs...
     fireEvent.change(screen.getByLabelText("State Name"), {
       target: { value: "Karnataka" },
     });
@@ -98,6 +111,7 @@ describe("NeighourhoodEngine Component", () => {
     });
     fireEvent.click(screen.getByText("SEARCH"));
 
+    // Expected Output...
     await waitFor(() => {
       expect(window.alert).toHaveBeenCalledWith("No Data Found");
     });
