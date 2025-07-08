@@ -1,14 +1,16 @@
 # 🏙️ Gyaana-grha : Lifestyle-based Neighborhood Recommender Platform
 
-Gyaana-grha is a Web platform that intelligently matches students and early-career professionals to neighborhoods based on their **educational, professional, psychological**, and **lifestyle needs** using **live Public Datasets, Google Maps APIs, and AI Integration**.
+***Gyaana-grha: A neighborhood fit engine for aspirants — because real estate is more than just rent. Unlike most real estate tools, Gyaana-grha focuses on aspirational fit, not just square footage or budget — this makes it a more intelligent first step in relocation and housing choices.***
 
-**Example :** Many **Students** and **Young Professionals** relocate to new cities for **Education or Career opportunities**. However, choosing the **right neighborhood** often becomes **difficult** due to **lack of knowledge about the area**. This **platform aims** to **simplify that process** by providing **Personalized Neighborhood Suggestions** that match **user profiles** according to their needs.
+**Gyaana-grha** is a web platform that **intelligently** matches **students and early-career professionals to neighborhoods** based on their **educational, professional, psychological**, and **lifestyle needs** using **live Public Datasets, Google Maps APIs, and AI Integration**.
+
+**Example :** Many **Students** and **Young Professionals** relocate to new cities for **Education or Career opportunities**. However, choosing the **right neighborhood** often becomes **difficult** due to **lack of knowledge about the area**. This **platform aims** to **simplify that process** by providing **Personalized Neighborhood Suggestions** that match **user profiles** according to their needs and **book their Rent**.
 
 ---
 
 ## 🔗 Live URL
 
-**Frontend**: [https://gyaanagrha-ashminbhaumik.vercel.app](https://gyaanagrha-ashminbhaumik.vercel.app)
+**Project Link :** [https://gyaanagrha-ashminbhaumik.vercel.app](https://gyaanagrha-ashminbhaumik.vercel.app)
 
 > ⚠️ **IMPORTANT NOTE:**  
 > ⏳ Please **wait ~40 seconds** for the **SERVER to start** when opening the website **(Please Refresh after ~40 seconds)**.  
