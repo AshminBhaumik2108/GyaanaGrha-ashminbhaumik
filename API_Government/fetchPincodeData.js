@@ -1,8 +1,8 @@
 const axios = require("axios");
 require("dotenv").config();
 
-const Statename = "TRIPURA";
-const Pincode = "";
+const Statename = "Tripura"; // Test State...
+const Pincode = "799006"; // Test Pincode...
 const District = "";
 
 const fetchPincodeData = async () => {
@@ -16,7 +16,6 @@ const fetchPincodeData = async () => {
       timeout: 10000,
     });
     const records = response.data.records;
-    console.log(" ✅ Raw Data fetched successfully ashminbhaumik....");
     return records;
   } catch (error) {
     console.error("Error fetching data ashminbhaumik :", error.message);
@@ -47,4 +46,5 @@ const filterRecords = (records, { statename, pincode, district }) => {
 
   console.log("\nFiltered Results:");
   console.log(filtered);
+  console.log(" \n✅ Raw Data fetched successfully ashminbhaumik....");
 })();
