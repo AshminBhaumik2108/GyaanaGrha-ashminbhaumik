@@ -118,7 +118,7 @@ export default function Myfavourites() {
                       <IconButton aria-label="share">
                         <ShareIcon
                           onClick={() => {
-                            alert(`Copy link : gyaanagrha-${chart._id}`);
+                            toast.error(`Copy link : gyaanagrha-${chart._id}`);
                           }}
                         />
                       </IconButton>

@@ -51,7 +51,7 @@ export default function googleLocCards() {
                 onClick={() => {
                   console.log("Working");
                   if (chart.latitude === "NA" && chart.longitude === "NA") {
-                    alert(
+                    toast.error(
                       "Data Doesn't conatain latitude and longitude values"
                     );
                   } else {

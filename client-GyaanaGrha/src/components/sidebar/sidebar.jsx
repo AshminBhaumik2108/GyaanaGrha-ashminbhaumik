@@ -206,7 +206,7 @@ const sidebar = ({ data }) => {
         <div
           className="bottom-item recent-entry-bottom"
           onClick={() => {
-            alert(
+            toast.error(
               "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅\n\nWhatsapp No : +91 9612063328\nLinkedIn : ashmin-bhaumik\nEmail : ashmin.bhaumik03@gmail.com"
             );
           }}
@@ -223,7 +223,7 @@ const sidebar = ({ data }) => {
         <div
           className="bottom-item recent-entry-bottom"
           onClick={() => {
-            alert(
+            toast.error(
               "👍 👍 👍 👍 👍 👍 👍 \nJust View Details : Rest Everything Works Normally like an Website"
             );
           }}

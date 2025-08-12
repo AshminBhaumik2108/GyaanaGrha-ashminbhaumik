@@ -51,7 +51,7 @@ export default function wsm() {
       //     `Coaching: ${coaching}, Libraries: ${libraries}, Rent: ${rent}, Area: ${area}, Exam: ${exam}`
       //   );
     } else {
-      alert(
+      toast.error(
         "Please enter all the fields for preference... (If not have any preference enter '0')"
       );
     }
@@ -317,7 +317,7 @@ export default function wsm() {
                                 alt=""
                                 style={{ width: "50px", height: "50px" }}
                                 onClick={() => {
-                                  alert(
+                                  toast.error(
                                     "🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳\n\nYou have Completed Booking for your Stay"
                                   );
                                 }}
@@ -327,7 +327,7 @@ export default function wsm() {
                               <IconButton aria-label="share">
                                 <ShareIcon
                                   onClick={() => {
-                                    alert(
+                                    toast.error(
                                       "Copy link : gyaanagrha-ashminbhaumik"
                                     );
                                   }}

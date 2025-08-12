@@ -24,6 +24,7 @@ import { pushPrompt } from "../../api/prompt/fetchPrompt.js";
 import { useNavigate } from "react-router-dom";
 import { pushCarts } from "../../api/cart/useCart.js";
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function NeighourhoodEngine() {
   const validStates = [
@@ -105,7 +106,7 @@ export default function NeighourhoodEngine() {
       setResults(data);
       setLoading(false); // for the loader...
       if (data.length === 0) {
-        alert("No Data Found");
+        toast.error("No Data Found", {theme: "dark"});
         setStaticData(true); // for the static data : If the data is Empty...
       }
       console.log(data);
@@ -122,7 +123,7 @@ export default function NeighourhoodEngine() {
   const searchProps = () => {
     if (pincode !== "") {
       if (pincode.length !== 6) {
-        alert("Please enter a valid PINCODE");
+        toast.error("Please enter a valid PINCODE", {theme: "dark"});
         setSearch(true);
         return;
       }
@@ -131,8 +132,8 @@ export default function NeighourhoodEngine() {
       setSearch(false);
       if (stateName !== "" || pincode !== "" || district !== "") {
         if (!isValidState) {
-          alert(
-            "Please enter a valid State name. Check for Spelling Errors..."
+          toast.error(
+            "Please enter a valid State name. Check for Spelling Errors...", {theme: "dark"}
           );
           setSearch(true);
         } else {
@@ -140,7 +141,7 @@ export default function NeighourhoodEngine() {
           pushPrompt(stateName);
         }
       } else {
-        alert("Please enter at least one field");
+        toast.error("Please enter at least one field", {theme: "dark"});
       }
     }
   };
@@ -175,6 +176,7 @@ export default function NeighourhoodEngine() {
         width: "89vw",
       }}
     >
+      {/* <ToastContainer position="top-right" autoClose={3000} /> */}
       <div className="neighourhood-engine">
         <div
           style={{
@@ -189,8 +191,8 @@ export default function NeighourhoodEngine() {
           <h2>
             NEIGHOURHOOD FIT AREA <br />
             <p style={{ paddingTop: "9px" }}>
-              Search for your Specific Areas ( By Statename, Pincode, District OR
-              By Anyone of them OTHER than Exam Preferences )
+              Search for your Specific Areas ( By Statename, Pincode, District
+              OR By Anyone of them OTHER than Exam Preferences )
             </p>
           </h2>
         </div>
@@ -850,7 +852,7 @@ export default function NeighourhoodEngine() {
                             <IconButton aria-label="add to favorites">
                               {/* <FavoriteIcon
                             onClick={() => {
-                              alert(
+                              toast.error(
                                 "Add House to areas first (Put Favourite from My Areas -> Top Right)"
                               );
                             }}
@@ -879,7 +881,7 @@ export default function NeighourhoodEngine() {
                                   latitude: item.latitude,
                                   longitude: item.longitude,
                                 };
-                                alert("House has been added to areas"); // for the view of getting whether the cart image is working or not...
+                                toast.error("House has been added to areas", {theme: "dark"}); // for the view of getting whether the cart image is working or not...
                                 pushCarts(payload);
                               }}
                               style={{

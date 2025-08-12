@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Context } from "./context/context.jsx";
+import { ToastContainer, toast } from "react-toastify";
 
 // Lazy-loaded components. For the files Components to work properly in the Large Datasets...
 const Sidebar = lazy(() => import("./components/sidebar/sidebar.jsx"));
@@ -23,6 +24,7 @@ const WSM = lazy(() => import("./components/wsm/wsm.jsx"));
 function App() {
   return (
     <Router>
+      <ToastContainer position="top-right" autoClose={3000} />
       <div className="">
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>

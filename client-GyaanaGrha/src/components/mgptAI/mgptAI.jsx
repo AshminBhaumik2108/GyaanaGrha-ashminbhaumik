@@ -26,17 +26,18 @@ export default function mgptAI() {
       <div
         className="main"
         style={{
-          padding: "0px 0px",
           padding: "relative",
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
           width: "89vw",
-          padding: "0px",
           boxSizing: "border-box",
         }}
       >
-        <div className="nav" style={{ justifyContent: "space-between", paddingRight: "30px" }}>
+        <div
+          className="nav"
+          style={{ justifyContent: "space-between", paddingRight: "30px" }}
+        >
           <h3
             className="nav-titles"
             style={{
@@ -48,7 +49,7 @@ export default function mgptAI() {
           >
             MGPT AI{" "}
           </h3>
-          <img style={{ width: "5vw" }} src={assets.gyaanagrha} alt = "imgtest" />
+          <img style={{ width: "5vw" }} src={assets.gyaanagrha} alt="imgtest" />
         </div>
         <div className="main-container">
           {/* If showResult = true, show the result else show the cards */}
@@ -73,7 +74,7 @@ export default function mgptAI() {
                       src={
                         "https://cdn-icons-png.freepik.com/512/13078/13078445.png"
                       }
-                      alt = "imgtest"
+                      alt="imgtest"
                     />
                   </p>
                 </div>
@@ -86,7 +87,7 @@ export default function mgptAI() {
                       src={
                         "https://cdn-icons-png.freepik.com/512/18577/18577280.png"
                       }
-                      alt = "imgtest"
+                      alt="imgtest"
                     />
                   </p>
                 </div>
@@ -99,7 +100,7 @@ export default function mgptAI() {
                       src={
                         "https://cdn-icons-png.freepik.com/512/11782/11782442.png"
                       }
-                      alt = "imgtest"
+                      alt="imgtest"
                     />
                   </p>
                 </div>
@@ -112,7 +113,7 @@ export default function mgptAI() {
                       src={
                         "https://cdn-icons-png.freepik.com/512/7831/7831132.png"
                       }
-                      alt = "imgtest"
+                      alt="imgtest"
                     />
                   </p>
                 </div>
@@ -126,12 +127,12 @@ export default function mgptAI() {
                   src={
                     "https://png.pngtree.com/png-clipart/20240318/original/pngtree-gemini-horoscope-symbol-png-illustration-png-image_14613043.png"
                   }
-                  alt = "imgtest"
+                  alt="imgtest"
                 />
                 <p>{recentPrompt}</p>
               </div>
               <div className="result-data">
-                <img src={assets.gemini} alt = "imgtest" />
+                <img src={assets.gemini} alt="imgtest" />
                 {/* Till the Data is not loaded, show the loading animation */}
                 {loading ? (
                   <div className="loader">
@@ -169,7 +170,7 @@ export default function mgptAI() {
                   // onKeyDown : Fires when a key is first pressed down.
                   if (event.key === "Enter") {
                     if (input === "") {
-                      alert("Please Enter Something...");
+                      toast.error("Please Enter Something...");
                     } else {
                       onSent();
                       setInput("");
@@ -178,20 +179,20 @@ export default function mgptAI() {
                 }}
               />
               <div>
-                <img src={assets.gallery} alt = "imgtest" />
-                <img src={assets.mic} alt = "imgtest" />
+                <img src={assets.gallery} alt="imgtest" />
+                <img src={assets.mic} alt="imgtest" />
                 {/* Correct usage: calling the function for the Status of the Code... */}
                 <img
                   onClick={() => {
                     if (input === "") {
-                      alert("Please Enter Something...");
+                      toast.error("Please Enter Something...");
                     } else {
                       onSent();
                       setInput("");
                     }
                   }}
                   src={assets.send}
-                  alt = "imgtest"
+                  alt="imgtest"
                 />
               </div>
             </div>

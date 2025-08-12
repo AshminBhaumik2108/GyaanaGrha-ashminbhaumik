@@ -131,7 +131,7 @@ export default function myarea() {
                               latitude: chart.latitude,
                               longitude: chart.longitude,
                             };
-                            alert("House has been added to favourites"); // for the view of getting whether the cart image is working or not...
+                            toast.error("House has been added to favourites"); // for the view of getting whether the cart image is working or not...
                             pushFavourite(payload);
                           }}
                         />
@@ -139,7 +139,7 @@ export default function myarea() {
                       <IconButton aria-label="share">
                         <ShareIcon
                           onClick={() => {
-                            alert(`Copy link : gyaanagrha-${chart._id}`);
+                            toast.error(`Copy link : gyaanagrha-${chart._id}`);
                           }}
                         />
                       </IconButton>
