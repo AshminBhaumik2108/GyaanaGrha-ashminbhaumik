@@ -106,7 +106,7 @@ export default function NeighourhoodEngine() {
       setResults(data);
       setLoading(false); // for the loader...
       if (data.length === 0) {
-        toast.error("No Data Found", {theme: "dark"});
+        toast.error("No Data Found", {theme: "colored"});
         setStaticData(true); // for the static data : If the data is Empty...
       }
       console.log(data);
@@ -123,7 +123,7 @@ export default function NeighourhoodEngine() {
   const searchProps = () => {
     if (pincode !== "") {
       if (pincode.length !== 6) {
-        toast.error("Please enter a valid PINCODE", {theme: "dark"});
+        toast.error("Please enter a valid PINCODE", {theme: "colored"});
         setSearch(true);
         return;
       }
@@ -133,7 +133,7 @@ export default function NeighourhoodEngine() {
       if (stateName !== "" || pincode !== "" || district !== "") {
         if (!isValidState) {
           toast.error(
-            "Please enter a valid State name. Check for Spelling Errors...", {theme: "dark"}
+            "Please enter a valid State name. Check for Spelling Errors...", {theme: "colored"}
           );
           setSearch(true);
         } else {
@@ -141,7 +141,7 @@ export default function NeighourhoodEngine() {
           pushPrompt(stateName);
         }
       } else {
-        toast.error("Please enter at least one field", {theme: "dark"});
+        toast.error("Please enter at least one field", {theme: "colored"});
       }
     }
   };
@@ -881,7 +881,7 @@ export default function NeighourhoodEngine() {
                                   latitude: item.latitude,
                                   longitude: item.longitude,
                                 };
-                                toast.error("House has been added to areas", {theme: "dark"}); // for the view of getting whether the cart image is working or not...
+                                toast.success("House has been added to areas", {theme: "colored"}); // for the view of getting whether the cart image is working or not...
                                 pushCarts(payload);
                               }}
                               style={{

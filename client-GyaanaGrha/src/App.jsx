@@ -24,7 +24,7 @@ const WSM = lazy(() => import("./components/wsm/wsm.jsx"));
 function App() {
   return (
     <Router>
-      <ToastContainer position="top-right" autoClose={3000} />
+      <ToastContainer position="top-right" autoClose={5000} />
       <div className="">
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>

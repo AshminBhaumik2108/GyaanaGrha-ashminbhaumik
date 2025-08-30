@@ -20,6 +20,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { fetchCarts, deleteCarts } from "../../api/cart/useCart.js";
 import { pushFavourite } from "../../api/favourites/useFavourites.js";
+import { toast } from "react-toastify";
 
 export default function myarea() {
   const [prevCarts, setPrevCarts] = useState([]);
@@ -131,7 +132,7 @@ export default function myarea() {
                               latitude: chart.latitude,
                               longitude: chart.longitude,
                             };
-                            toast.error("House has been added to favourites"); // for the view of getting whether the cart image is working or not...
+                            toast.success("House has been added to favourites", {theme: "colored"}); // for the view of getting whether the cart image is working or not...
                             pushFavourite(payload);
                           }}
                         />
@@ -139,7 +140,7 @@ export default function myarea() {
                       <IconButton aria-label="share">
                         <ShareIcon
                           onClick={() => {
-                            toast.error(`Copy link : gyaanagrha-${chart._id}`);
+                            toast.success(`Copy link : gyaanagrha-${chart._id}`, {theme: "colored"}) ;
                           }}
                         />
                       </IconButton>

@@ -15,6 +15,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { toast } from "react-toastify";
 
 export default function wsm() {
   // useState Cases : for the State of the WSM
@@ -51,8 +52,9 @@ export default function wsm() {
       //     `Coaching: ${coaching}, Libraries: ${libraries}, Rent: ${rent}, Area: ${area}, Exam: ${exam}`
       //   );
     } else {
-      toast.error(
-        "Please enter all the fields for preference... (If not have any preference enter '0')"
+      toast.warn(
+        "Please enter all the fields for preference... (If not have any preference enter '0')",
+        {theme: "colored"},
       );
     }
   };
@@ -317,8 +319,8 @@ export default function wsm() {
                                 alt=""
                                 style={{ width: "50px", height: "50px" }}
                                 onClick={() => {
-                                  toast.error(
-                                    "🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳\n\nYou have Completed Booking for your Stay"
+                                  toast.success(
+                                    "\n\nYou have Completed Booking for your Stay", {theme : "colored"},
                                   );
                                 }}
                               ></img>
@@ -327,8 +329,9 @@ export default function wsm() {
                               <IconButton aria-label="share">
                                 <ShareIcon
                                   onClick={() => {
-                                    toast.error(
-                                      "Copy link : gyaanagrha-ashminbhaumik"
+                                    toast.success(
+                                      "Copy link : gyaanagrha-ashminbhaumik", 
+                                      {theme: "colored"},
                                     );
                                   }}
                                 />

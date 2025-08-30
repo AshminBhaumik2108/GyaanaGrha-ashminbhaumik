@@ -8,6 +8,7 @@ import { getAllPrompts } from "../../api/prompt/prompt.js";
 import { Context } from "../../context/context.jsx";
 import { fetchPrompts, deleteData } from "../../api/prompt/fetchPrompt.js";
 import NeighourhoodEngine from "../neighourhoodengine/neighourhoodengine.jsx";
+import { toast } from "react-toastify";
 
 const sidebar = ({ data }) => {
   // Context :
@@ -206,8 +207,9 @@ const sidebar = ({ data }) => {
         <div
           className="bottom-item recent-entry-bottom"
           onClick={() => {
-            toast.error(
-              "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅\n\nWhatsapp No : +91 9612063328\nLinkedIn : ashmin-bhaumik\nEmail : ashmin.bhaumik03@gmail.com"
+            toast.success(
+              "\n\nWhatsapp No : +91 9612063328\nLinkedIn : ashmin-bhaumik\nEmail : ashmin.bhaumik03@gmail.com",
+              {theme: "colored"}
             );
           }}
         >
@@ -223,8 +225,9 @@ const sidebar = ({ data }) => {
         <div
           className="bottom-item recent-entry-bottom"
           onClick={() => {
-            toast.error(
-              "👍 👍 👍 👍 👍 👍 👍 \nJust View Details : Rest Everything Works Normally like an Website"
+            toast.success(
+              "\nJust View Details : Rest Everything Works Normally like an Website",
+              {theme: "colored"}
             );
           }}
         >
