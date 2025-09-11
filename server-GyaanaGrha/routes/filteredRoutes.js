@@ -5,3 +5,4 @@ const { getFilteredData } = require("../controllers/getFilteredData");
 router.post("/getFiltereddata/getData", getFilteredData);
 
 module.exports = router;
+    

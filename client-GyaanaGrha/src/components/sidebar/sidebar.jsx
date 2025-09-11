@@ -81,6 +81,22 @@ const sidebar = ({ data }) => {
             {/* These are the static entries for the recent prompts... */}
             <div
               className="recent-entry"
+              // onClick={() => window.open("https://docs.google.com/document/d/1Z7lHovSDx-CUgLqO6Uvv_5NLutn8gDzedkjWCStKYUM/edit?usp=sharing")}
+              onClick={() => {
+                window.open(
+                  "https://chatapplication-gyaanagrha.streamlit.app/", '_blank'
+                  // "_blank" : helps me not to navigate the Current Page...
+                )
+              }}
+            >
+              <img
+                src={"https://cdni.iconscout.com/illustration/premium/thumb/chat-bot-illustration-svg-png-download-8362563.png"}
+                alt = "imgtest"
+              />
+              <p>Chatbot Gyaanagrha</p>
+            </div>
+            <div
+              className="recent-entry"
               onClick={() => navigate("/neighborhood-fit-engine")}
             >
               <img

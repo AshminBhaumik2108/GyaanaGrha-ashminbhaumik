@@ -15,6 +15,7 @@ const createData = async (req, res) => {
 // Get all Saved data from favourite...
 const getData = async (req, res) => {
   try {
+    // const allData = await FavouriteData.find({}, { name: 1, url: 1 }); : projection field...
     const allData = await FavouriteData.find();
     res.status(200).json({ success: true, data: allData });
   } catch (error) {

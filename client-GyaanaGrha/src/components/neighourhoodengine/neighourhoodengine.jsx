@@ -172,8 +172,9 @@ export default function NeighourhoodEngine() {
     <div
       style={{
         display: "flex",
+        justifyContent: "space-between",
         flexDirection: "column",
-        width: "89vw",
+        width: "100%",
       }}
     >
       {/* <ToastContainer position="top-right" autoClose={3000} /> */}
