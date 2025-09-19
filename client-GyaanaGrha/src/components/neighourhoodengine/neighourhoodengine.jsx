@@ -136,12 +136,15 @@ export default function NeighourhoodEngine() {
             "Please enter a valid State name. Check for Spelling Errors...", {theme: "colored"}
           );
           setSearch(true);
+          return;
         } else {
           onSearch();
           pushPrompt(stateName);
         }
       } else {
         toast.error("Please enter at least one field", {theme: "colored"});
+        setSearch(true);
+        return;
       }
     }
   };
